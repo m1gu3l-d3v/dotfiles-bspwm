@@ -79,40 +79,42 @@ touch ~/.config/qt5ct/qt5ct.conf
 touch ~/.config/qt6ct/qt6ct.conf
 truncate -s 0 ~/.config/qt5ct/qt5ct.conf
 truncate -s 0 ~/.config/qt6ct/qt6ct.conf
-{
-  echo "[Appearance]"
-  echo "color_scheme_path=/home/mike/.config/qt5ct/colors/oomox-${colorscheme}.conf"
-  echo "custom_palette=true"
-  echo "icon_theme=oomox-${colorscheme}"
-  echo "standard_dialogs=default"
-  echo "style=Fusion"
+for file in ~/.config/qt5ct/qt5ct.conf ~/.config/qt6ct/qt6ct.conf; do
+  {
+    echo "[Appearance]"
+    echo "color_scheme_path=/home/mike/.config/qt5ct/colors/oomox-${colorscheme}.conf"
+    echo "custom_palette=true"
+    echo "icon_theme=oomox-${colorscheme}"
+    echo "standard_dialogs=default"
+    echo "style=Fusion"
 
-  echo "[Fonts]"
-  echo "fixed=@Variant(\\0\\0\\0@\\0\\0\\0 \\0H\\0u\\0r\\0m\\0i\\0t\\0 \\0N\\0erd\\0 \\0Font@\"\\0\\0\\0\\0\\0\\0\\xff\\xff\\xff\\xff\\x5\\x1\\0\\x19\\x10)"
-  echo "general=@Variant(\\0\\0\\0@\\0\\0\\0 \\0H\\0u\\0r\\0m\\0i\\0t\\0 \\0N\\0erd\\0 \\0Font@\"\\0\\0\\0\\0\\0\\0\\xff\\xff\\xff\\xff\\x5\\x1\\0\\x19\\x10)"
+    echo "[Fonts]"
+    echo "fixed=@Variant(\\0\\0\\0@\\0\\0\\0 \\0H\\0u\\0r\\0m\\0i\\0t\\0 \\0N\\0erd\\0 \\0Font@\"\\0\\0\\0\\0\\0\\0\\xff\\xff\\xff\\xff\\x5\\x1\\0\\x19\\x10)"
+    echo "general=@Variant(\\0\\0\\0@\\0\\0\\0 \\0H\\0u\\0r\\0m\\0i\\0t\\0 \\0N\\0erd\\0 \\0Font@\"\\0\\0\\0\\0\\0\\0\\xff\\xff\\xff\\xff\\x5\\x1\\0\\x19\\x10)"
 
-  echo "[Interface]"
-  echo "activate_item_on_single_click=1"
-  echo "buttonbox_layout=0"
-  echo "cursor_flash_time=1000"
-  echo "dialog_buttons_have_icons=1"
-  echo "double_click_interval=400"
-  echo "gui_effects=@Invalid()"
-  echo "keyboard_scheme=2"
-  echo "menus_have_icons=true"
-  echo "show_shortcuts_in_context_menus=true"
-  echo "stylesheets=@Invalid()"
-  echo "toolbutton_style=4"
-  echo "underline_shortcut=1"
-  echo "wheel_scroll_lines=3"
+    echo "[Interface]"
+    echo "activate_item_on_single_click=1"
+    echo "buttonbox_layout=0"
+    echo "cursor_flash_time=1000"
+    echo "dialog_buttons_have_icons=1"
+    echo "double_click_interval=400"
+    echo "gui_effects=@Invalid()"
+    echo "keyboard_scheme=2"
+    echo "menus_have_icons=true"
+    echo "show_shortcuts_in_context_menus=true"
+    echo "stylesheets=@Invalid()"
+    echo "toolbutton_style=4"
+    echo "underline_shortcut=1"
+    echo "wheel_scroll_lines=3"
 
-  echo "[SettingsWindow]"
-  echo "geometry=@ByteArray(\\x1\\xd9\\xd0\\xcb\\0\\x3\\0\\0\\0\\0\\x3\\x96\\0\\0\\0:\\0\\0\\x5I\\0\\0\\x2\\xf3\\0\\0\\x3\\x98\\0\\0\\0<\\0\\0\\x5G\\0\\0\\x2\\xf1\\0\\0\\x3\\x98\\0\\0\\0<\\0\\0\\x5G\\0\\0\\x2\\xf1)"
+    echo "[SettingsWindow]"
+    echo "geometry=@ByteArray(\\x1\\xd9\\xd0\\xcb\\0\\x3\\0\\0\\0\\0\\x3\\x96\\0\\0\\0:\\0\\0\\x5I\\0\\0\\x2\\xf3\\0\\0\\x3\\x98\\0\\0\\0<\\0\\0\\x5G\\0\\0\\x2\\xf1\\0\\0\\x3\\x98\\0\\0\\0<\\0\\0\\x5G\\0\\0\\x2\\xf1)"
 
-  echo "[Troubleshooting]"
-  echo "force_raster_widgets=1"
-  echo "ignored_applications=@Invalid()"
-} >> ~/.config/qt5ct/qt5ct.conf >> ~/.config/qt6ct/qt6ct.conf
+    echo "[Troubleshooting]"
+    echo "force_raster_widgets=1"
+    echo "ignored_applications=@Invalid()"
+  }  >> "$file"
+done
 
 sleep 1
 # Reload GTK theme

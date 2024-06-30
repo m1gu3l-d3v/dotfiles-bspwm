@@ -1,0 +1,5 @@
+#!/bin/bash
+
+~/.config/colorschemes/script $1
+
+~/.config/colorschemes/gtk-gen

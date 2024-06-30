@@ -1,0 +1,121 @@
+#!/bin/bash
+
+# Verifica si se ha proporcionado un argumento
+if [ -n "$1" ]; then
+  # Si se proporciona un argumento, crea el archivo y escribe el argumento en él
+  mkdir -p ~/.cache/colorschemes/scheme # Crea el directorio si no existe
+  echo "$1" > ~/.cache/colorschemes/scheme/color
+else
+  # Si no se proporciona un argumento, verifica si el archivo existe
+  if [ ! -f ~/.cache/colorschemes/scheme/color ]; then
+    echo "Error: El archivo de esquema de colores ~/.cache/colorschemes/scheme/color no existe."
+    exit 1
+  fi
+fi
+
+# Lee el esquema de colores del archivo
+colorscheme=$(cat ~/.cache/colorschemes/scheme/color)
+
+killall xsettingsd
+
+# Verifica la existencia de la carpeta ~/.themes/oomox-${colorscheme}
+if [ -d ~/.themes/oomox-${colorscheme} ]; then
+  echo "The carpet ~/.themes/oomox-${colorscheme} exist."
+else
+  ~/.oomox/plugins/theme_oomox/change_color.sh ~/.cache/colorschemes/oomox -o oomox-${colorscheme}
+fi
+
+# Verifica la existencia de la carpeta ~/.icons/oomox-${colorscheme}
+if [ -d ~/.icons/oomox-${colorscheme} ]; then
+  echo "The carpet ~/.icons/oomox-${colorscheme} exist."
+else
+  ~/.oomox/plugins/icons_archdroid/archdroid-icon-theme/change_color.sh ~/.cache/colorschemes/oomox -o oomox-${colorscheme}
+fi
+
+# xsettingsd
+touch ~/.xsettingsd
+truncate -s 0 ~/.xsettingsd
+{
+  echo "Net/ThemeName \"oomox-${colorscheme}\""
+  echo "Net/IconThemeName \"oomox-${colorscheme}\""
+} >> ~/.xsettingsd
+
+# Gtk 3
+touch ~/.config/gtk-3.0/settings.ini
+truncate -s 0 ~/.config/gtk-3.0/settings.ini
+{
+  echo "[Settings]"
+  echo "gtk-theme-name=oomox-${colorscheme}"
+  echo "gtk-icon-theme-name=oomox-${colorscheme}"
+  echo "gtk-font-name=Hurmit Nerd Font 9"
+  echo "gtk-cursor-theme-name=Vimix-cursors"
+  echo "gtk-cursor-theme-size=0"
+  echo "gtk-toolbar-style=GTK_TOOLBAR_BOTH"
+  echo "gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR"
+  echo "gtk-button-images=1"
+  echo "gtk-menu-images=1"
+  echo "gtk-enable-event-sounds=1"
+  echo "gtk-enable-input-feedback-sounds=1"
+  echo "gtk-xft-antialias=1"
+  echo "gtk-xft-hinting=1"
+  echo "gtk-xft-hintstyle=hintfull"
+} >> ~/.config/gtk-3.0/settings.ini
+
+# Gtk 2
+touch ~/.gtkrc.mine
+touch ~/.gtkrc-2.0
+truncate -s 0 ~/.gtkrc.mine
+truncate -s 0 ~/.gtkrc-2.0
+{
+  echo "include \"/home/mike/.themes/oomox-${colorscheme}/gtk-2.0/gtkrc\""
+  echo "gtk-font-name=\"Hurmit Nerd Font Light 9\""
+  echo "gtk-theme-name=\"oomox-${colorscheme}\""
+  echo "gtk-icon-theme-name=\"oomox-${colorscheme}\""
+  echo "gtk-cursor-theme-name=\"Vimix-cursors\""
+} >> ~/.gtkrc.mine >> ~/.gtkrc-2.0
+
+# QT
+touch ~/.config/qt5ct/qt5ct.conf
+touch ~/.config/qt6ct/qt6ct.conf
+truncate -s 0 ~/.config/qt5ct/qt5ct.conf
+truncate -s 0 ~/.config/qt6ct/qt6ct.conf
+{
+  echo "[Appearance]"
+  echo "color_scheme_path=/home/mike/.config/qt5ct/colors/oomox-${colorscheme}.conf"
+  echo "custom_palette=true"
+  echo "icon_theme=oomox-${colorscheme}"
+  echo "standard_dialogs=default"
+  echo "style=Fusion"
+
+  echo "[Fonts]"
+  echo "fixed=@Variant(\\0\\0\\0@\\0\\0\\0 \\0H\\0u\\0r\\0m\\0i\\0t\\0 \\0N\\0erd\\0 \\0Font@\"\\0\\0\\0\\0\\0\\0\\xff\\xff\\xff\\xff\\x5\\x1\\0\\x19\\x10)"
+  echo "general=@Variant(\\0\\0\\0@\\0\\0\\0 \\0H\\0u\\0r\\0m\\0i\\0t\\0 \\0N\\0erd\\0 \\0Font@\"\\0\\0\\0\\0\\0\\0\\xff\\xff\\xff\\xff\\x5\\x1\\0\\x19\\x10)"
+
+  echo "[Interface]"
+  echo "activate_item_on_single_click=1"
+  echo "buttonbox_layout=0"
+  echo "cursor_flash_time=1000"
+  echo "dialog_buttons_have_icons=1"
+  echo "double_click_interval=400"
+  echo "gui_effects=@Invalid()"
+  echo "keyboard_scheme=2"
+  echo "menus_have_icons=true"
+  echo "show_shortcuts_in_context_menus=true"
+  echo "stylesheets=@Invalid()"
+  echo "toolbutton_style=4"
+  echo "underline_shortcut=1"
+  echo "wheel_scroll_lines=3"
+
+  echo "[SettingsWindow]"
+  echo "geometry=@ByteArray(\\x1\\xd9\\xd0\\xcb\\0\\x3\\0\\0\\0\\0\\x3\\x96\\0\\0\\0:\\0\\0\\x5I\\0\\0\\x2\\xf3\\0\\0\\x3\\x98\\0\\0\\0<\\0\\0\\x5G\\0\\0\\x2\\xf1\\0\\0\\x3\\x98\\0\\0\\0<\\0\\0\\x5G\\0\\0\\x2\\xf1)"
+
+  echo "[Troubleshooting]"
+  echo "force_raster_widgets=1"
+  echo "ignored_applications=@Invalid()"
+} >> ~/.config/qt5ct/qt5ct.conf >> ~/.config/qt6ct/qt6ct.conf
+
+sleep 1
+# Reload GTK theme
+xsettingsd &
+sleep 1
+killall xsettingsd

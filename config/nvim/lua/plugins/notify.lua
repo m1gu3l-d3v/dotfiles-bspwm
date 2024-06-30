@@ -1,0 +1,72 @@
+return {
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    config = function()
+      require("notify").setup({
+        stages = "fade_in_slide_out",
+        timeout = 1000,
+        render = "wrapped-compact",
+        max_height = function()
+          return math.floor(vim.o.lines * 0.40)
+        end,
+        max_width = function()
+          return math.floor(vim.o.columns * 0.40)
+        end,
+      })
+      vim.notify = require("notify")
+    end,
+  },
+  {
+    { -- All the config is made for the big mrs4ndman https://github.com/mrs4ndman/nvim-conf/blob/main/lua/plugins/ui/noice.lua
+      "folke/noice.nvim",
+      lazy = false,
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+      },
+      opts = {
+        lsp = {
+          progress = {
+            enabled = true,
+            view = "mini",
+            throttle = 1000 / 60,
+          },
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        presets = {
+          bottom_search = true,
+          command_palette = true,
+          long_message_to_split = true,
+          inc_rename = true,
+          lsp_doc_border = true,
+        },
+        routes = {
+          view = "notify",
+          filter = { event = "msg_showmode" },
+        },
+        views = {
+          mini = {
+            backend = "mini",
+            timeout = 1500,
+            size = { height = "auto", width = "auto", max_height = 5 },
+            border = { style = "none" },
+            zindex = 30,
+            win_options = {
+              winbar = "",
+              foldenable = false,
+              winblend = 40,
+              winhighlight = { Normal = "NoiceMini" },
+            },
+          },
+        },
+        cmdline = {
+          view = "cmdline_popup",
+        },
+      },
+    }
+  }
+}

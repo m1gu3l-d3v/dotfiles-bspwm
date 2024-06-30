@@ -1,0 +1,116 @@
+#!/bin/bash
+
+# Verifica si se ha proporcionado un argumento
+if [ -n "$1" ]; then
+  # Si se proporciona un argumento, crea el archivo y escribe el argumento en él
+  mkdir -p ~/.cache/colorschemes/scheme # Crea el directorio si no existe
+  echo "$1" > ~/.cache/colorschemes/scheme/color
+else
+  # Si no se proporciona un argumento, verifica si el archivo existe
+  if [ ! -f ~/.cache/colorschemes/scheme/color ]; then
+    echo "Error: El archivo de esquema de colores ~/.cache/colorschemes/scheme/color no existe."
+    exit 1
+  fi
+fi
+
+# Lee el esquema de colores del archivo
+colorscheme=$(cat ~/.cache/colorschemes/scheme/color)
+
+# Carga el esquema de colores
+if [ ! -f "${HOME}/.config/colorschemes/colors/${colorscheme}.sh" ]; then
+  echo "Error: El archivo de esquema de colores ${colorscheme}.sh no existe en ${HOME}/.config/colorschemes/colors/"
+  exit 1
+fi
+
+. "${HOME}/.config/colorschemes/colors/${colorscheme}.sh"
+
+# Bspwm borders
+bspc config normal_border_color "$colormain1"
+bspc config active_border_color "$colormain1"
+bspc config focused_border_color "$color15"
+bspc config presel_feedback_color "$colormain1"
+
+# Limpia y recrea el directorio de cache
+rm -rf ~/.cache/colorschemes/*
+mkdir -p ~/.cache/colorschemes/scheme/
+
+# Función para convertir números a palabras
+colors() {
+  case $1 in
+    0) echo "$color0" ;;
+    1) echo "$color1" ;;
+    2) echo "$color2" ;;
+    3) echo "$color3" ;;
+    4) echo "$color4" ;;
+    5) echo "$color5" ;;
+    6) echo "$color6" ;;
+    7) echo "$color7" ;;
+    8) echo "$color8" ;;
+    9) echo "$color9" ;;
+    10) echo "$color10" ;;
+    11) echo "$color11" ;;
+    12) echo "$color12" ;;
+    13) echo "$color13" ;;
+    14) echo "$color14" ;;
+    15) echo "$color15" ;;
+  esac
+}
+
+reloads() {
+  # MatarProcesos
+  if pgrep -x "polybar" >/dev/null; then
+    pkill -x polybar
+  fi
+  if pgrep -x "dunst" >/dev/null; then
+    pkill -x dunst
+  fi
+  
+  # Iniciar Procesos
+  nohup ~/.config/polybar/launch.sh > ~/.config/polybar/polybar.log 2>&1 &
+  sleep 0.5
+  bspc query -D | while read -r desktop; do
+    for side in top bottom left right; do
+      bspc config -d ${desktop} ${side}_padding 0
+    done
+  done
+
+  dunst &
+}
+
+# Procesar cada archivo
+find ~/.config/colorschemes/templates/ -type f | while read -r file; do
+  dest=~/.cache/colorschemes/$(basename "$file")
+
+  # Copiar el archivo original al destino
+  cp "$file" "$dest"
+
+  colorStripBg=${colorbg:1}
+  colorStripFg=${colorfg:1}
+  colorStripMain=${colormain1:1}
+
+  # Realizar todos los reemplazos en el archivo de destino
+  for i in {0..15}; do
+    colorNormal=$(colors $i)
+    colorStrip="${colorNormal:1}"
+
+    sed -i -e "s/{color$i}/$colorNormal/g;
+    s/{color$i\.strip}/$colorStrip/g;
+    s/{colorbg}/$colorbg/g;
+    s/{colorfg}/$colorfg/g;
+    s/{colorbg.strip}/$colorStripBg/g;
+    s/{colorfg.strip}/$colorStripFg/g;
+    s/{colormain1}/$colormain1/g;
+    s/{colormain1.strip}/$colorStripMain/g;" "$dest"
+  done
+
+  cp "${HOME}/.config/colorschemes/colors/${colorscheme}.sh" ~/.cache/colorschemes/color.sh
+done
+
+# Actualiza el archivo de esquema de colores
+touch ~/.cache/colorschemes/scheme/color
+echo "${colorscheme}" > ~/.cache/colorschemes/scheme/color
+
+reloads
+
+#~/.config/colorschemes/gtk-load
+#~/.config/colorschemes/gtk-gen

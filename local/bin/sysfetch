@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bspc rule -r *; bspc rule -a * -o state=floating rectangle=300x450+0+0 center=true && alacritty -e ~/.config/sysfetch/sysfetch

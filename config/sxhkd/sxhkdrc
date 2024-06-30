@@ -1,0 +1,172 @@
+#
+# Hotkeys
+#
+#
+# terminal emulator
+super + Return
+  alacritty
+
+# program launcher
+super + d
+  rofi -modi drun -show drun -line-padding 4 \
+    -columns 2 -padding 50 -hide-scrollbar -terminal alacritty \
+    -show-icons -drun -icon-theme "Qogir-dark" -font "Hurmit Nerd Font Regular 8"
+
+# show open window
+super + ctrl + d
+  rofi -modi drun -show window -line-padding 4 \
+    -columns 2 -padding 50 -hide-scrollbar -terminal alacritty \
+    -show-icons -drun -icon-theme "Qogir-dark" -font "Hurmit Nerd Font Regular 8"
+
+# show ssh sesssions
+super + shift + d
+  rofi -modi drun -show ssh -line-padding 4 \
+    -columns 2 -padding 50 -hide-scrollbar -terminal alacritty \
+    -show-icons -drun -icon-theme "Qogir-dark" -font "Hurmit Nerd Font Regular 8"
+
+# make sxhkd reload its configuration files:
+super + Escape
+  pkill -USR1 -x sxhkd
+
+#
+# BSPWM
+#
+# quit/restart bspwm
+super + alt + {q,r}
+  bspc {quit, wm -r}
+
+# close and kill
+super + {_,shift + }q
+  bspc node -{c,k}
+
+# set the window state
+super + {t,shift + t,f,m,s}
+  bspc node -t {tiled ; bspc desktop --layout tiled; bsp-layout && bsp-layout set tiled && bsp-layout remove, \
+    pseudo_tiled || bspc node -t tiled, \
+    fullscreen || bspc node -t tiled, \
+    || bspc desktop -l next, \
+    floating || bspc node -t tiled}
+
+#
+# focus/swap
+#
+# focus the next/previous window in the current desktop
+super + {_,shift + }z
+  bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+  bspc desktop -f {prev,next}.local
+
+# focus the node in the given direction
+super + {_,shift + }{Left,Down,Up,Right}
+  bspc node -{f,s} {west,south,north,east}
+  
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+  bspc {desktop -f,node -d} '^{1-9,10}'
+
+# focus the last node/desktop #with problems, I change "grave" to "bar" notation
+super + {bar, Tab}
+  bspc {node,desktop} -f last
+
+#
+# move/resize
+#
+# expand/contract a window
+super + alt + {Left,Down,Up,Right}
+  bspc node -z {left -20 0 || bspc node -z right -20 0, \
+    bottom 0 20 || bspc node -z top 0 20,\
+    top 0 -20 || bspc node -z bottom 0 -20,\
+    right 20 0 || bspc node -z left 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {Left,Down,Up,Right}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+#
+# preselect
+#
+# preselect the direction
+super + ctrl + {Left,Down,Up,Right}
+  bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+  bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+  bspc node -p cancel
+
+#
+# Special hotkeys
+#
+## Brightness up
+XF86MonBrightnessUp
+  xbacklight -inc 5
+
+# And brightness down
+XF86MonBrightnessDown
+  xbacklight -dec 5
+
+# And brightness down
+XF86MonBrightnessDown
+  xbacklight -dec 5
+
+#
+# Shortcuts
+#
+# Firefox
+super + {_,shift + } w
+  firefox { , --private-window}
+
+# Thunar
+super + n 
+  thunar
+
+# Capture
+super + ctrl + a
+  bspc node $(xwininfo | awk '/^xwininfo: Window id:/ \{print $4\}') -f && cd $(xdg-user-dir PICTURES)/Screenshots/ && scrot --focused Screenshot.png -e 'xclip -selection clipboard -target image/png -i $f'
+super + { , shift + } a
+  cd $(xdg-user-dir PICTURES)/Screenshots/ && scrot Screenshot.png { --select --line mode=edge, } -e 'xclip -selection clipboard -target image/png -i $f'
+#  flameshot {gui,screen}
+
+# Neovim
+super + e
+  alacritty -e nvim
+
+# Sysfetch
+super + y
+  bspc rule -r '*'; bspc rule -a '*' -o state=floating rectangle=300x450+0+0 center=true && alacritty -e ~/.config/sysfetch/sysfetch
+# Neofetch
+super + shift + y
+  bspc rule -r '*'; bspc rule -a '*' -o state=floating rectangle=350x180+0+0 center=true && alacritty -e sh -c "neofetch"
+
+# tty-clock
+super + c
+  bspc rule -r '*'; bspc rule -a '*' -o state=floating rectangle=400x200+0+0 center=true && alacritty -e sh -c "tty-clock -c -C 1 -s -S -f %d-%m-%Y"
+
+# Show/Hide polybar
+super + shift + p
+  ~/.config/polybar/hideShow.sh
+
+# Poweroff Menu
+super + p
+  ~/.config/rofi/scripts/powermenu.sh
+
+# Swap layout
+alt + ctrl + super + {Left,Down,Up,Right,n,m,e,t}
+  bsp-layout set {tall && bspc node -s west, \
+    rwide && bspc node -s south, \
+    wide && bspc node -s north, \
+    rtall && bspc node -s east, \
+    grid,rgrid,even,tiled}
+
+#
+# Position window commands
+#
+# Open in bottom right
+#bspc rule -r '*'; dimensionx=300 && dimensiony=300; width=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 1); height=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 2); window_gap=$(bspc config window_gap); border_width=$(bspc config border_width); bspc rule -a '*' -o state=floating rectangle=${dimensionx}x${dimensiony}+$((width - dimensionx - window_gap - 2 * border_width))+$((height - dimensiony - window_gap - 2 * border_width))
+# Open in center (center=true is better)
+#bspc rule -r '*'; dimensionx=300 && dimensiony=300; width=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 1); height=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 2); bspc rule -a '*' -o state=floating rectangle=${dimensionx}x${dimensiony}+$((($width - $dimensionx) / 2))+$((($height - $dimensiony) / 2))

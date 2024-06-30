@@ -1,0 +1,5 @@
+include "/home/mike/.themes/oomox-Main/gtk-2.0/gtkrc"
+gtk-font-name="Hurmit Nerd Font Light 9"
+gtk-theme-name="oomox-Main"
+gtk-icon-theme-name="oomox-Main"
+gtk-cursor-theme-name="Vimix-cursors"

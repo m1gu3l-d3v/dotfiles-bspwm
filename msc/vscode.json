@@ -1,0 +1,203 @@
+{
+  "editor.formatOnSave": false,
+  "indentRainbow.lightIndicatorStyleLineWidth": 1,
+  "indentRainbow.indicatorStyle": "light",
+  "indentRainbow.colors": [
+    "rgba(255,255,64, 0.2)",
+    "rgba(127,255,127, 0.2)",
+    "rgba(255,127,255, 0.2)",
+    "rgba(79,236,236, 0.2)",
+  ],
+  // styles
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "editor.fontFamily": "'Hurmit Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+  "workbench.sideBar.location": "right",
+  "workbench.tree.renderIndentGuides": "none",
+  "catppuccin-icons.hidesExplorerArrows": true,
+  "workbench.colorCustomizations": {
+    // colors here
+  },
+
+  // workbench
+  "breadcrumbs.enabled": false,
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
+  "workbench.tips.enabled": false,
+  "workbench.statusBar.visible": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none",
+  "window.menuBarVisibility": "toggle",
+  "workbench.editor.showTabs": "single",
+  "workbench.activityBar.location": "hidden",
+  "window.customTitleBarVisibility": "never",
+  "workbench.activityBar.iconClickBehavior": "toggle",
+
+  // telemetry
+  "redhat.telemetry.enabled": false,
+
+  // editor
+  "editor.tabSize": 2,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 0,
+  "window.zoomLevel": -1,
+  "editor.cursorSurroundingLines": 15,
+  "editor.scrollbar.verticalScrollbarSize": 4,
+  "editor.scrollbar.horizontalScrollbarSize": 4,
+  "editor.fontLigatures": true,
+  "editor.hover.enabled": false,
+  "editor.minimap.enabled": false,
+  "editor.detectIndentation": true,
+  "editor.guides.indentation": false,
+  "editor.overviewRulerBorder": false,
+  "editor.hideCursorInOverviewRuler": false,
+  "editor.matchBrackets": "never",
+  "editor.cursorBlinking": "solid",
+  "editor.lineNumbers": "relative",
+  "editor.renderWhitespace": "none",
+  "editor.lightbulb.enabled": "off",
+  "editor.renderLineHighlight": "none",
+  "editor.showFoldingControls": "never",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.cursorSmoothCaretAnimation": "on",
+
+  // terminal
+  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.lineHeight": 0,
+  "terminal.integrated.fontSize": 14,
+
+  // window
+  "window.titleBarStyle": "native",
+
+  // vim
+  "vim.useSystemClipboard": true,
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    //{
+    //  "before": ["k", "k"],
+    //  "after": ["<CR>"]
+    //},
+    //{
+    //  "before": ["j", "j"],
+    //  "after": ["<Esc>"]
+    //}
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Esc>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    },
+    {
+      "before": ["<leader>", "w", "q"],
+      "commands": [
+        "workbench.action.files.save",
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": ["<leader>", "q", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "q", "a"],
+      "commands": ["workbench.action.closeAllEditors"]
+    },
+    {
+      "before": ["<leader>", "q", "s"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["g", "x"],
+      "commands": ["editor.action.openLink"]
+    },
+    {
+      "before": ["<c-s>"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "s", "v"],
+      "commands": ["workbench.action.splitEditor"]
+    },
+    {
+      "before": ["<leader>", "s", "h"],
+      "commands": ["workbench.action.splitEditorOrthogonal"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+        "before": ["<leader>", "l"],
+        "commands": ["workbench.action.focusRightGroup"]
+    },
+    {
+      "before": ["<leader>", "t", "o"],
+      "commands": ["workbench.action.files.newUntitledFile"]
+    },
+    {
+      "before": ["<leader>", "t", "x"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "t", "n"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<leader>", "t", "p"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<leader>", "s", "m"],
+      "commands": ["workbench.action.toggleEditorWidths"]
+    },
+    {
+      "before": ["<leader>", "e", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "e", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "c", "d"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["<leader>", "c", "D"],
+      "commands": ["workbench.action.showErrorsWarnings"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "window.commandCenter": false,
+  "emmet.includeLanguages": {
+    "jsp": "html"
+  },
+  "files.associations": {
+    "*.jsp": "html"
+  },
+}

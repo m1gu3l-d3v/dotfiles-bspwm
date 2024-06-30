@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Vim
+Exec=alacritty -e nvim %F
+Terminal=false
+Type=Application
+Keywords=Text;editor;
+Icon=vim
+Categories=Utility;TextEditor;
+StartupNotify=false

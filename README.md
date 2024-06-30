@@ -277,3 +277,31 @@ You can choose from the following themes by executing any of the following lines
         <td>Show restart/shutdown menu</td>
     </tr>
 </table>
+
+### You can import your own color scheme! To generate one, you need to create a file at `cat ~/.config/colorschemes/colors/SchemeName.sh` similar to:
+
+  ```sh
+  colorbg='#1e1e2e'
+  colorfg='#a6adc8'
+  colormain1='#cba6f7'
+  color0='#45475a'
+  color1='#f38ba8'
+  color2='#a6e3a1'
+  color3='#f9e2af'
+  color4='#89b4fa'
+  color5='#f5c2e7'
+  color6='#94e2d5'
+  color7='#bac2de'
+  color8='#585b70'
+  color9='#f38ba8'
+  color10='#a6e3a1'
+  color11='#f9e2af'
+  color12='#89b4fa'
+  color13='#f5c2e7'
+  color14='#94e2d5'
+  color15='#a6adc8'
+  ```
+### Then you can generate it by running:
+  ```bash
+  colorscheme SchemeName
+  ```

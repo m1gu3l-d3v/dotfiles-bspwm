@@ -7,7 +7,6 @@ Este repositorio contiene mi configuración personalizada para el gestor de vent
 - Dunst
 - Alacritty
 - Rofi
-- Ly Display Manager
 - GTK [(oomox - themix-gui)](https://github.com/themix-project/themix-gui)
 - QT [(oomox - themix-gui)](https://github.com/themix-project/themix-gui)
 

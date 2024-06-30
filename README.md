@@ -9,7 +9,6 @@ This repository contains my customized configuration for the BSPWM window manage
 - Dunst
 - Alacritty
 - Rofi
-- Ly Display Manager
 - GTK [(oomox - themix-gui)](https://github.com/themix-project/themix-gui)
 - QT [(oomox - themix-gui)](https://github.com/themix-project/themix-gui)
 

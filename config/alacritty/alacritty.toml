@@ -1,4 +1,4 @@
-import = ["/home/mike/.cache/colorschemes/alacritty.toml"]
+import = ["~/.cache/colorschemes/alacritty.toml"]
 
 [font]
 size = 11.0

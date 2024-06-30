@@ -276,7 +276,7 @@ Puedes elegir entre los siguientes temas ejecutando cualquiera de las siguientes
     </tr>
 </table>
 
-### ¡Usted puede importar su propio esquema de colores! Para generar uno, debe crear un archivo en `cat ~/.config/colorschemes/colors/NombreEsquema.sh` similar a:
+### ¡Usted puede importar su propio esquema de colores! Para generar uno, debe crear un archivo en `~/.config/colorschemes/colors/NombreEsquema.sh` similar a:
 
   ```sh
   colorbg='#1e1e2e'

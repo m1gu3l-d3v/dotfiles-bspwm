@@ -278,7 +278,7 @@ You can choose from the following themes by executing any of the following lines
     </tr>
 </table>
 
-### You can import your own color scheme! To generate one, you need to create a file at `cat ~/.config/colorschemes/colors/SchemeName.sh` similar to:
+### You can import your own color scheme! To generate one, you need to create a file at `~/.config/colorschemes/colors/SchemeName.sh` similar to:
 
   ```sh
   colorbg='#1e1e2e'

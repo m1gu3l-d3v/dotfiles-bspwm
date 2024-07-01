@@ -2,7 +2,7 @@
   <img src="https://img.shields.io/github/last-commit/m1gu3l-d3v/dotfiles?style=for-the-badge&color=b4befe" alt="GitHub last commit"> 
   <img src="https://img.shields.io/github/repo-size/m1gu3l-d3v/dotfiles?style=for-the-badge&color=cba6f7" alt="GitHub repo size">
   <a href="https://github.com/m1gu3l-d3v/dotfiles/blob/main/README-ES.md">
-    <img src="https://img.shields.io/badge/spanish-README-blue?style=for-the-badge&color=f38ba8" alt="Spanish README">
+    <img src="https://img.shields.io/badge/spanish-README-blue?style=for-the-badge&color=f38ba8" alt="README ES">
   </a>
 </div>
 

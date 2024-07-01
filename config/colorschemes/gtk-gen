@@ -132,3 +132,6 @@ sleep 1
 xsettingsd &
 sleep 1
 killall xsettingsd
+
+chmod +x ~/.cache/colorschemes/tty.sh
+~/.cache/colorschemes/tty.sh

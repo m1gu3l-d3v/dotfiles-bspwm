@@ -56,6 +56,35 @@ colors() {
   esac
 }
 
+hex_to_rgb() {
+    local hex=$1
+    local r=$(echo "ibase=16; $(echo ${hex:1:2} | tr '[:lower:]' '[:upper:]')" | bc)
+    local g=$(echo "ibase=16; $(echo ${hex:3:2} | tr '[:lower:]' '[:upper:]')" | bc)
+    local b=$(echo "ibase=16; $(echo ${hex:5:2} | tr '[:lower:]' '[:upper:]')" | bc)
+    echo "($r,$g,$b)"
+}
+
+colors_rgb() {
+  case $1 in
+    0) echo "$(hex_to_rgb "$color0")" ;;
+    1) echo "$(hex_to_rgb "$color1")" ;;
+    2) echo "$(hex_to_rgb "$color2")" ;;
+    3) echo "$(hex_to_rgb "$color3")" ;;
+    4) echo "$(hex_to_rgb "$color4")" ;;
+    5) echo "$(hex_to_rgb "$color5")" ;;
+    6) echo "$(hex_to_rgb "$color6")" ;;
+    7) echo "$(hex_to_rgb "$color7")" ;;
+    8) echo "$(hex_to_rgb "$color8")" ;;
+    9) echo "$(hex_to_rgb "$color9")" ;;
+    10)  echo "$(hex_to_rgb "$color10")" ;;
+    11)  echo "$(hex_to_rgb "$color11")" ;;
+    12)  echo "$(hex_to_rgb "$color12")" ;;
+    13)  echo "$(hex_to_rgb "$color13")" ;;
+    14)  echo "$(hex_to_rgb "$color14")" ;;
+    15)  echo "$(hex_to_rgb "$color15")" ;;
+  esac
+}
+
 reloads() {
   # MatarProcesos
   if pgrep -x "polybar" >/dev/null; then
@@ -90,11 +119,13 @@ find ~/.config/colorschemes/templates/ -type f | while read -r file; do
 
   # Realizar todos los reemplazos en el archivo de destino
   for i in {0..15}; do
-    colorNormal=$(colors $i)
+    colorNormal="$(colors $i)"
     colorStrip="${colorNormal:1}"
+    colorRgb="$(colors_rgb $i)"
 
     sed -i -e "s/{color$i}/$colorNormal/g;
     s/{color$i\.strip}/$colorStrip/g;
+    s/{color$i\.rgb}/$colorRgb/g;
     s/{colorbg}/$colorbg/g;
     s/{colorfg}/$colorfg/g;
     s/{colorbg.strip}/$colorStripBg/g;
@@ -111,6 +142,3 @@ touch ~/.cache/colorschemes/scheme/color
 echo "${colorscheme}" > ~/.cache/colorschemes/scheme/color
 
 reloads
-
-#~/.config/colorschemes/gtk-load
-#~/.config/colorschemes/gtk-gen

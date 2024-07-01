@@ -1,0 +1,111 @@
+#!/bin/bash
+
+# Validar el argumento
+if [ -n "$1" ] && [[ "$1" =~ \.(jpg|jpeg|png)$ ]]; then
+  # Extraer nombre del archivo sin la extensión
+  filename=$(basename -- "$1")
+  filename_without_extension="${filename%.*}"
+  
+  # Crear directorio para los colores
+  mkdir -p "$HOME/.config/colorschemes/colors/scheme-data/$filename_without_extension"
+  
+  # Crear y escribir en el archivo de imagen
+  image_file="$HOME/.config/colorschemes/colors/scheme-data/$filename_without_extension/image"
+  touch "$image_file"
+  truncate -s 0 "$image_file"
+  echo "$1" > "$image_file"
+else
+  echo "You must specify a valid image file (jpg, jpeg, png) as an argument."
+  exit 1
+fi
+
+# Variables
+INPUT_IMAGE=$(cat "$HOME/.config/colorschemes/colors/scheme-data/$filename_without_extension/image")
+OUTPUT_COLORS="$HOME/.config/colorschemes/colors/scheme-data/$filename_without_extension/colores.txt"
+HEX_COLORS="$HOME/.config/colorschemes/colors/scheme-data/$filename_without_extension/colores_hex.txt"
+ORDERED_COLORS="$HOME/.config/colorschemes/colors/$filename_without_extension.sh"
+
+# Convertir imagen a texto con colores
+convert $INPUT_IMAGE -colors 256 -unique-colors txt:- > $OUTPUT_COLORS
+
+# Extraer colores en formato hexadecimal
+awk '/#[0-9A-F]{6}/ {print $3}' $OUTPUT_COLORS > $HEX_COLORS
+
+# Declarar colores objetivos en el orden específico y sus versiones claras
+declare -A colors
+colors=(
+  [color0]="#1D3039"
+  [color1]="#C45D5D"
+  [color2]="#395F69"
+  [color3]="#E7CB7B"
+  [color4]="#3C5D84"
+  [color5]="#AF7EC2"
+  [color6]="#7DC2B8"
+  [color7]="#DCDAE1"
+  [color8]="#76847E"
+  [color9]="#D58797"
+  [color10]="#7DC2B8"
+  [color11]="#F0D191"
+  [color12]="#6C7DC2"
+  [color13]="#D8B4C8"
+  [color14]="#A8C9D8"
+  [color15]="#DCDAE1"
+)
+
+# Orden específico de salida
+ordered_keys=(
+  "color0" "color1" "color2" "color3" "color4" "color5" "color6" "color7"
+  "color8" "color9" "color10" "color11" "color12" "color13" "color14" "color15"
+)
+
+# Función para calcular la distancia de color
+color_distance() {
+  local color1=$1
+  local color2=$2
+  local r1=$((16#${color1:1:2}))
+  local g1=$((16#${color1:3:2}))
+  local b1=$((16#${color1:5:2}))
+  local r2=$((16#${color2:1:2}))
+  local g2=$((16#${color2:3:2}))
+  local b2=$((16#${color2:5:2}))
+  echo $(( (r1-r2)*(r1-r2) + (g1-g2)*(g1-g2) + (b1-b2)*(b1-b2) ))
+}
+
+# Crear archivo de salida para los colores en el orden específico
+> $ORDERED_COLORS
+
+# Función para encontrar y guardar el color más cercano
+find_and_store_color() {
+  local target_color=$1
+  local name=$2
+  local nearest_color=""
+  local min_distance=1000000000
+
+  while read -r color; do
+    distance=$(color_distance $target_color $color)
+    if [ $distance -lt $min_distance ]; then
+      min_distance=$distance
+      nearest_color=$color
+    fi
+  done < $HEX_COLORS
+  
+  echo "$name='$nearest_color'" >> $ORDERED_COLORS
+}
+
+# Encontrar colores en el orden específico
+for key in "${ordered_keys[@]}"; do
+  find_and_store_color ${colors[$key]} $key
+done
+
+source $ORDERED_COLORS
+
+# Añadir líneas específicas al inicio del archivo ORDERED_COLORS
+sed -i "1i colormain1='$color4'" "$ORDERED_COLORS"
+sed -i "1i colorfg='${color15%?}f'" "$ORDERED_COLORS"
+sed -i "1i colorbg='$color0'" "$ORDERED_COLORS"
+
+# Mostrar mensaje de salida
+#echo "Salida en orden especificado:"
+#cat $ORDERED_COLORS
+
+nitrogen --save --set-zoom-fill "$INPUT_IMAGE"

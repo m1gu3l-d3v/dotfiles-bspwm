@@ -1,3 +1,9 @@
 #!/bin/bash
 
-~/.config/colorschemes/script $1 && ~/.config/colorschemes/gtk-gen
+if [ -n "$1" ] && [[ "$1" =~ \.(jpg|jpeg|png)$ ]]; then
+  filename=$(basename -- "$1")
+  filename_without_extension="${filename%.*}"
+  ~/.config/colorschemes/colors-image "$1" && ~/.config/colorschemes/script "$filename_without_extension" && ~/.config/colorschemes/gtk-gen
+else
+  ~/.config/colorschemes/script "$filename_without_extension" && ~/.config/colorschemes/gtk-gen
+fi

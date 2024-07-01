@@ -78,6 +78,7 @@ chmod +x ~/.aliases
 chmod +x ~/.local/bin/*
 chmod +x ~/.config/bspwm/*
 chmod +x ~/.config/polybar/*
+chmod +x ~/.config/colorschemes/*
 chmod +x ~/.config/rofi/scripts/*
 chmod +x ~/.config/polybar/scripts/*
 chmod +x ~/.config/sysfetch/sysfetch

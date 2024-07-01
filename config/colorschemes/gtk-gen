@@ -82,7 +82,11 @@ truncate -s 0 ~/.config/qt6ct/qt6ct.conf
 for file in ~/.config/qt5ct/qt5ct.conf ~/.config/qt6ct/qt6ct.conf; do
   {
     echo "[Appearance]"
-    echo "color_scheme_path=/home/mike/.config/qt5ct/colors/oomox-${colorscheme}.conf"
+    if [[ "$file" == *qt5ct.conf ]]; then
+      echo "color_scheme_path=/home/mike/.config/qt5ct/colors/oomox-${colorscheme}.conf"
+    elif [[ "$file" == *qt6ct.conf ]]; then
+      echo "color_scheme_path=/home/mike/.config/qt6ct/colors/oomox-${colorscheme}.conf"
+    fi
     echo "custom_palette=true"
     echo "icon_theme=oomox-${colorscheme}"
     echo "standard_dialogs=default"

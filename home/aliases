@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export VISUAL="${EDITOR}"
 export EDITOR="nvim"
 export TERMINAL="alacritty"
@@ -5,47 +7,9 @@ export BROWSER="firefox"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export PATH="/usr/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-#export PATH="$HOME/.local/share/bob/v0.9.5/nvim-linux64/bin:$PATH"
 
-# Pywaal reload GTK and colors
-wal_wrapper() {
-  if [ "$1" = "--set" ]; then
-    tema="$2"
-    case "$tema" in
-	    "Catppuccin")
-        ~/.GTK-configs/Catppuccin.sh;;
-        "Dracula")
-            ~/.GTK-configs/Dracula.sh;;
-        "Gruvbox")
-            ~/.GTK-configs/Gruvbox.sh;;
-        "Nord")
-            ~/.GTK-configs/Nord.sh;;
-        "RosePine")
-            ~/.GTK-configs/RosePine.sh;;
-        "Everforest")
-            ~/.GTK-configs/Everforest.sh;;
-        "Monokai")
-            ~/.GTK-configs/Monokai.sh;;
-        "NordRed")
-            ~/.GTK-configs/NordRed.sh;;
-        "Pywal")
-            ~/.GTK-configs/Pywal.sh;;
-        "SetPywal")
-            ~/.GTK-configs/SetPywal.sh;;
-        *)
-          if [[ "$tema" == *"+" ]]; then
-              echo "Tema no reconocido: $tema_base"
-          else
-              wal --theme "$tema"
-          fi
-          ;;
-    esac
-  else
-      command wal "$@"
-  fi
-}
-
-git_clone() {
+# aliases
+git-clone() {
   if [ -z "$1" ]; then
     echo "Por favor, proporciona la ruta del repositorio."
     return 1
@@ -54,9 +18,6 @@ git_clone() {
   local git_url="git@github.com:${repo_path}.git"
   git clone "$git_url"
 }
-alias git-clone='git_clone'
-
-alias wal='wal_wrapper'
 alias e='nvim'
 alias :q='; exit'
 alias poweroff='/sbin/poweroff'
@@ -66,7 +27,10 @@ alias rm-nvim='rm -rf ~/.cache/nvim/ ~/.local/share/nvim/ ~/.local/state/nvim/ ~
 alias history='fc -l -1000'
 alias bc='bc -l'
 alias mkdir='mkdir -pv'
-alias spr='cat ~/.plantilla-spring.xml | xclip -selection clipboard'
+alias sprm='mvn spring-boot:run'
+alias sprg='./gradlew bootRun'
+alias jtem='nvim ~/.templates/dependencies.xml ~/.templates/application.properties ~/.templates/javapages.jsp -c "vsp ~/.templates/application.properties" -c "sp ~/.templates/javapages.jsp"'
+alias mhttp='cat ~/.rest-nvim.rest | xclip -selection clipboard'
 alias toMp3='sh -c '\''ffmpeg -i "$1" -q:a 0 -map a "${1%.*}.mp3"'\'' -'
 alias toMp4='sh -c '\''ffmpeg -i "$1" -codec:v copy -codec:a copy "${1%.*}.mp4"'\'' -'
 

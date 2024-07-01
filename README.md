@@ -1,5 +1,7 @@
-[Spanish](https://github.com/m1gu3l-d3v/dotfiles/blob/main/README-ES.md)
-
+<div align="center">
+![GitHub last commit](https://img.shields.io/github/last-commit/m1gu3l-d3v/dotfiles?style=for-the-badge&color=b4befe) ![GitHub repo size](https://img.shields.io/github/repo-size/m1gu3l-d3v/dotfiles?style=for-the-badge&color=cba6f7)[](https://img.shields.io/badge/spanish-README-blue?style=for-the-badge&color=f38ba8) <a href="https://github.com/m1gu3l-d3v/dotfiles/blob/main/README-ES.md">[Spanish](https://github.com/m1gu3l-d3v/dotfiles/blob/main/README-ES.md)</a>
+</div>
+<br/>
 # BSPWM
 
 This repository contains my customized configuration for the BSPWM window manager. It includes templates for various color schemes with integration to:

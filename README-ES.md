@@ -47,111 +47,111 @@ Puedes elegir entre los siguientes temas ejecutando cualquiera de las siguientes
   ```
   ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinFrappe1.png)
   ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinFrappe2.png)
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinFrappe3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinFrappe3.png)
 
 - Catppuccin Latte
   ```bash
   colorscheme CatppuccinLatte
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinLatte1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinLatte2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinLatte3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinLatte1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinLatte2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinLatte3.png)
 
 - Catppuccin Machiato
   ```bash
   colorscheme CatppuccinMachiato
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMachiato1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMachiato2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMachiato3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMachiato1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMachiato2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMachiato3.png)
 
 - Catppuccin Mocha
   ```bash
   colorscheme CatppuccinMocha
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMocha1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMocha2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMocha3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMocha1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMocha2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/CatppuccinMocha3.png)
 
 - Dracula
   ```bash
   colorscheme Dracula
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Dracula1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Dracula2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Dracula3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Dracula1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Dracula2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Dracula3.png)
 
 - Everblush
   ```bash
   colorscheme Everblush
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everblush1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everblush2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everblush3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everblush1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everblush2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everblush3.png)
 
 - Everforest
   ```bash
   colorscheme Everforest
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everforest1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everforest2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everforest3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everforest1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everforest2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Everforest3.png)
 
 - Gruvbox Dark
   ```bash
   colorscheme GruvboxDark
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxDark1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxDark2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxDark3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxDark1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxDark2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxDark3.png)
 
 - Gruvbox Material
   ```bash
   colorscheme GruvboxMaterial
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxMaterial1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxMaterial2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxMaterial3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxMaterial1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxMaterial2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/GruvboxMaterial3.png)
 
 - Monokai Pro Ristretto
   ```bash
   colorscheme MonokaiProRistretto
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiProRistretto1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiProRistretto2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiProRistretto3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiProRistretto1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiProRistretto2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiProRistretto3.png)
 
 - Monokai Pro
   ```bash
   colorscheme MonokaiPro
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiPro1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiPro2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiPro3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiPro1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiPro2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/MonokaiPro3.png)
 
 - Nord
   ```bash
   colorscheme Nord
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Nord1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Nord2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Nord3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Nord1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Nord2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/Nord3.png)
 
 - OneDark
   ```bash
   colorscheme OneDark
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/OneDark1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/OneDark2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/OneDark3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/OneDark1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/OneDark2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/OneDark3.png)
 
 - RosePine
   ```bash
   colorscheme RosePine
   ```
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/RosePine1.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/RosePine2.png))
-  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/RosePine3.png))
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/RosePine1.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/RosePine2.png)
+  ![](https://github.com/m1gu3l-d3v/dotfiles/blob/main/screnshots/RosePine3.png)
 
 
 ## Atajos de teclado

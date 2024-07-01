@@ -7,6 +7,7 @@
 </div>
 
 <br/>
+
 # BSPWM
 
 This repository contains my customized configuration for the BSPWM window manager. It includes templates for various color schemes with integration to:

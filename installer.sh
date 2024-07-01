@@ -3,6 +3,8 @@ if (( ! EUID )); then
   exit
 fi
 
+sudo apt update && sudo apt upgrade
+
 dir_actual=$(pwd)
 
 # Layouts with bsp-layout (optional)
@@ -127,9 +129,6 @@ mkdir -p ~/.config/bpytop/themes/ && ln -s ~/.cache/colorschemes/btop.theme ~/.c
 # dunst theme (symbolic link)
 mkdir -p ~/.config/dunst/ && ln -s ~/.cache/colorschemes/dunstrc ~/.config/dunst/dunstrc
 
-# Gnome Polkit
-sudo apt install policykit-1-gnome
-
 # Set terminal default in Gnome and Cinnamon
 gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/alacritty
 gsettings set org.cinnamon.desktop.default-applications.terminal exec /usr/bin/alacritty
@@ -139,23 +138,6 @@ source ~/.zshrc
 
 # NEOVIM 0.9.5 IN REPO SID (UNSTABLE)
 sudo apt install neovim nodejs npm ripgrep
-#OR
-# NEOVIM STABLE VERSION 0.9.5
-#sudo apt autoremove nvim
-#sudo apt install curl cmake nodejs npm
-#curl https://sh.rustup.rs -sSf | sh
-#source ~/.bashrc
-#source ~/.zshrc
-#cargo install bob-nvim
-#  Alternative: cargo install --git https://github.com/MordechaiHadad/bob.git
-#bob install stable
-#bob use stable
-#sudo cp ~/.local/share/bob/v0.9.5/nvim-linux64/bin/nvim /usr/bin/nvim
-#sudo cp ~/.local/share/bob/nvim-bin/nvim /usr/bin/nvim
-
-# Language
-#setxkbmap latam
-#sudo localectl set-locale LANG=es_ES.UTF-8
 
 # Neofetch ascii correction directory
 sed -i "s|/home/mike/.config/neofetch/hack3.txt|/home/$(whoami)/.config/neofetch/hack3.txt|g" ~/.config/neofetch/config.conf
@@ -163,9 +145,10 @@ sed -i "s|/home/mike/.config/neofetch/hack3.txt|/home/$(whoami)/.config/neofetch
 # Packages
 # For use startx ("display manager") https://wiki.archlinux.org/title/xinit
 sudo apt install xinit x11-utils
-sudo apt update && sudo apt upgrade
+
 # Basic and recomended packages for bspwm
-sudo apt install bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp gtk2-engines nitrogen dunst lxappearance xdg-user-dirs mpd ncmpcpp xclip webp-pixbuf-loader xsettingsd psmisc picom coreutils unrar zip
+sudo apt install bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp gtk2-engines nitrogen dunst lxappearance xdg-user-dirs mpd ncmpcpp xclip webp-pixbuf-loader xsettingsd psmisc picom coreutils unrar zip policykit-1-gnome zsh zsh-autosuggestions
+
 sudo apt update && sudo apt upgrade
 
 # Solution: Slow startup for applications
@@ -178,7 +161,6 @@ sudo systemctl disable mpd.service
 systemctl --user enable --now mpd.service
 
 # zsh
-sudo apt install zsh zsh-autosuggestions
 chsh $(whoami) -s /bin/zsh
 
 # Set color

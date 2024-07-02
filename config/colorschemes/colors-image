@@ -31,10 +31,41 @@ convert $INPUT_IMAGE -colors 256 -unique-colors txt:- > $OUTPUT_COLORS
 # Extraer colores en formato hexadecimal
 awk '/#[0-9A-F]{6}/ {print $3}' $OUTPUT_COLORS > $HEX_COLORS
 
+# Extraer Color Predomionante
+colorPredominant=$(convert /usr/share/backgrounds/Wallpapers/NordRed/oucfddlh7d7b1.jpg -format %c -depth 8 histogram:info:histogram_image.txt | sort -n histogram_image.txt | tail -1 | awk '{print $3}')
+
+calculate_intermediate_color() {
+    local color1="$1"
+    local color2="$2"
+
+    # Extraer los componentes RGB de los colores hexadecimales
+    r1=$(printf '%d' "0x${color1:1:2}")
+    g1=$(printf '%d' "0x${color1:3:2}")
+    b1=$(printf '%d' "0x${color1:5:2}")
+
+    r2=$(printf '%d' "0x${color2:1:2}")
+    g2=$(printf '%d' "0x${color2:3:2}")
+    b2=$(printf '%d' "0x${color2:5:2}")
+
+    # Calcular el color intermedio
+    r=$(( (r1 + r2) / 2 ))
+    g=$(( (g1 + g2) / 2 ))
+    b=$(( (b1 + b2) / 2 ))
+
+    # Convertir los componentes RGB intermedios a hexadecimal
+    r_hex=$(printf '%02X' "$r")
+    g_hex=$(printf '%02X' "$g")
+    b_hex=$(printf '%02X' "$b")
+
+    # Imprimir el color intermedio en formato hexadecimal
+    echo "#${r_hex}${g_hex}${b_hex}"
+}
+
+
 # Declarar colores objetivos en el orden específico y sus versiones claras
 declare -A colors
 colors=(
-  [color0]="#1D3039"
+  [color0]="#000000"
   [color1]="#C45D5D"
   [color2]="#395F69"
   [color3]="#E7CB7B"
@@ -99,10 +130,11 @@ done
 
 source $ORDERED_COLORS
 
+colorbg=$(calculate_intermediate_color "$color0" "$colorPredominant")
 # Añadir líneas específicas al inicio del archivo ORDERED_COLORS
 sed -i "1i colormain1='$color4'" "$ORDERED_COLORS"
 sed -i "1i colorfg='${color15%?}f'" "$ORDERED_COLORS"
-sed -i "1i colorbg='$color0'" "$ORDERED_COLORS"
+sed -i "1i colorbg='$colorbg'" "$ORDERED_COLORS"
 
 # Mostrar mensaje de salida
 #echo "Salida en orden especificado:"

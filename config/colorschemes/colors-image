@@ -131,8 +131,9 @@ done
 source $ORDERED_COLORS
 
 colorbg=$(calculate_intermediate_color "$color0" "$colorPredominant")
+colormain1=$(calculate_intermediate_color "$color15" "$colorPredominant")
 # Añadir líneas específicas al inicio del archivo ORDERED_COLORS
-sed -i "1i colormain1='$color4'" "$ORDERED_COLORS"
+sed -i "1i colormain1='$colormain1'" "$ORDERED_COLORS"
 sed -i "1i colorfg='${color15%?}f'" "$ORDERED_COLORS"
 sed -i "1i colorbg='$colorbg'" "$ORDERED_COLORS"
 

@@ -98,14 +98,9 @@ touch ~/.zshenv
 echo 'source $HOME/.aliases' >> ~/.zshenv
 
 # Wallpapers
-sudo apt install rename
-mkdir ~/temptemptemp
-sudo mkdir -p /usr/share/backgrounds/
 git clone https://github.com/m1gu3l-d3v/wallpapers ~/temptemptemp/wallpapers/
 sudo mv ~/temptemptemp/wallpapers /usr/share/backgrounds/wallpapers/
-find /usr/share/backgrounds/wallpapers/ -depth -name "*'*" -execdir rename "s/'//g" '{}' \;
-find /usr/share/backgrounds/wallpapers/ -type f -exec rename 's/[\[\]]//g' {} +
-find /usr/share/backgrounds/wallpapers/ -depth -name "* *" -execdir rename 's/ /_/g' '{}' \;
+rm -rf temptemptemp/
 
 # OOMOX
 sudo apt install gettext libgdk-pixbuf2.0-dev libxml2-utils gtk2-engines-murrine librsvg2-bin libgtk-3-dev bc sassc

@@ -129,15 +129,8 @@ mkdir -p ~/.config/bpytop/themes/ && ln -s ~/.cache/colorschemes/btop.theme ~/.c
 # dunst theme (symbolic link)
 mkdir -p ~/.config/dunst/ && ln -s ~/.cache/colorschemes/dunstrc ~/.config/dunst/dunstrc
 
-# Set terminal default in Gnome and Cinnamon
-gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/alacritty
-gsettings set org.cinnamon.desktop.default-applications.terminal exec /usr/bin/alacritty
-
 source ~/.bashrc
 source ~/.zshrc
-
-# NEOVIM 0.9.5 IN REPO SID (UNSTABLE)
-sudo apt install neovim nodejs npm ripgrep
 
 # Neofetch ascii correction directory
 sed -i "s|/home/mike/.config/neofetch/hack3.txt|/home/$(whoami)/.config/neofetch/hack3.txt|g" ~/.config/neofetch/config.conf
@@ -147,7 +140,7 @@ sed -i "s|/home/mike/.config/neofetch/hack3.txt|/home/$(whoami)/.config/neofetch
 sudo apt install xinit x11-utils
 
 # Basic and recomended packages for bspwm
-sudo apt install bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp gtk2-engines nitrogen dunst lxappearance xdg-user-dirs mpd ncmpcpp xclip webp-pixbuf-loader xsettingsd psmisc picom coreutils unrar zip policykit-1-gnome zsh zsh-autosuggestions
+sudo apt install bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp nitrogen dunst mpd ncmpcpp xclip xsettingsd psmisc picom coreutils unrar zip policykit-1-gnome zsh zsh-autosuggestions imagemagick neovim nodejs npm ripgrep
 
 sudo apt update && sudo apt upgrade
 
@@ -172,3 +165,7 @@ mkdir -p ~/.zsh
 git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.zsh/git-prompt.zsh
 echo "source ~/.zsh/git-prompt.zsh/git-prompt.zsh" >> .zshrc
 echo "source ~/.zsh/git-prompt.zsh/examples/rprompt.zsh" >> .zshrc
+
+# Set terminal default in Gnome and Cinnamon
+gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/alacritty
+gsettings set org.cinnamon.desktop.default-applications.terminal exec /usr/bin/alacritty

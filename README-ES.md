@@ -34,7 +34,7 @@ Para instalar y configurar BSPWM, sigue estos pasos:
     ```
 4. Utilidades basicas (100% opcionales):
    ```bash
-   sudo apt install xfce4-settings thunar-archive-plugin scrot tty-clock btop neofetch neovim wget geany ristretto mpv libreoffice libreoffice-gtk3
+   sudo apt install xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
    ```
 
 ## Temas Disponibles

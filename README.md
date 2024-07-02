@@ -42,7 +42,7 @@ To install and configure BSPWM, follow these steps:
     ./installer.sh
     ```
 
-4. Basic Utilities:
+4. Basic Utilities(100% optionals):
    ```bash
    sudo apt install xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
    ```

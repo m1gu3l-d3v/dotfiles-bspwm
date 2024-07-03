@@ -24,7 +24,7 @@
 "ui.background" = { fg = "color5", bg = "color0" }
 "ui.cursor" =  { fg = "color0", bg = "color1", modifiers = ["dim"] }
 "ui.cursor.match" = { fg = "color5", modifiers = ["underlined"] }
-"ui.cursor.primary" = { bg = "color7", modifier = ["dim"] }
+"ui.cursor.primary" = { fg = "color16", bg = "color7" }
 "ui.help" = { fg = "foreground", bg = "color16" }
 "ui.linenr" = { fg = "color8" }
 "ui.linenr.selected" = { fg = "colormain1", bg = "color16" }

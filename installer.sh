@@ -113,6 +113,14 @@ cd ~/.oomox/ && make -f po.mk install
 cd ~/ && git clone https://github.com/vinceliuice/Vimix-cursors
 cd ~/Vimix-cursors && sudo ./install.sh
 
+# helix theme (symbolic link)
+rm ~/.config/helix/themes/helix.toml
+ln -s ~/.cache/colorschemes/helix.toml ~/.config/helix/themes/helix.toml
+
+# dunst theme (symbolic link)
+rm ~/.config/dunst/dunstrc
+ln -s ~/.cache/colorschemes/dunstrc ~/.config/dunst/dunstrc
+
 # btop theme (symbolic link)
 rm ~/.config/btop/themes/btop.theme
 mkdir -p ~/.config/btop/themes/ && ln -s ~/.cache/colorschemes/btop.theme ~/.config/btop/themes/btop.theme

@@ -7,19 +7,15 @@ export BROWSER="firefox"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export PATH="/usr/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export DPRINT_INSTALL="/home/mike/.dprint"
+export PATH="$DPRINT_INSTALL/bin:$PATH"
 
 # aliases
-git-clone() {
-  if [ -z "$1" ]; then
-    echo "Por favor, proporciona la ruta del repositorio."
-    return 1
-  fi
-  local repo_path=${1//\//\/}
-  local git_url="git@github.com:${repo_path}.git"
-  git clone "$git_url"
-}
-alias e='nvim'
+alias nv='nvim'
+alias hx='helix'
 alias :q='; exit'
+alias git-clone='_git_clone'
 alias poweroff='/sbin/poweroff'
 alias reboot='/sbin/reboot'
 alias update='sudo apt update && sudo apt upgrade'
@@ -70,6 +66,60 @@ if [ "$SHELL" = "/bin/zsh" ]; then
   setopt hist_ignore_space
   setopt hist_find_no_dups
 
+  # Command completion
+  compdef _colorscheme_completions_zsh colorscheme
+
 elif [ "$SHELL" = "/bin/bash" ]; then
-    PS1='\u@\h:\w$ '
+  PS1='\u@\h:\w$ '
+
+  # Command completion
+  complete -F _colorscheme_completions_bash colorscheme
 fi
+
+_git_clone() {
+  if [ -z "$1" ]; then
+    echo "Please provide the repository path."
+    return 1
+  fi
+  local repo_path=${1//\//\/}
+  local git_url="git@github.com:${repo_path}.git"
+  git clone "$git_url"
+}
+
+_colorscheme_completions_zsh() {
+  local context state state_descr line
+  typeset -A opt_args
+
+  _arguments -C \
+    '1: :->arg'
+
+  case "$state" in
+    arg)
+      local expl
+      if [[ $PREFIX == */* ]]; then
+        _files
+      else
+        local -a options
+        local dir="${HOME}/.config/colorschemes/colors"
+        options=(${(f)"$(basename -s .sh ${(M)${(f)"$(ls $dir)"}:#*.sh})"})
+        _describe -t color-schemes 'color schemes' options
+      fi
+      ;;
+  esac
+}
+
+_colorscheme_completions_bash() {
+  local cur prev opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  
+  case "$prev" in
+    colorscheme)
+      local dir="$HOME/.config/colorschemes/colors"
+      opts=$(ls "$dir"/*.sh 2>/dev/null | xargs -n1 basename -s .sh | tr '\n' ' ')
+      ;;
+  esac
+
+  COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+}

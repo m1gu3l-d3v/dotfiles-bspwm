@@ -1,124 +1,79 @@
-# Author : MicRick<m1gu3l-d3v@github.io>
+"comment" = { fg = "color8" }
+"constant" = { fg = "color3", modifiers = ["bold"] }
+"constant.character.escape" = { fg = "color5" }
+"function" = { fg = "color1", modifiers = ["bold"]  }
+"keyword" = { fg = "color5", modifiers = ["bold"]  }
+"operator" = { fg = "color5" }
+"punctuation" = { fg = "color5" }
+"string" = { fg = "color2", modifiers = ["bold"] }
+"path" = { fg = "color2" }
+"string.regexp" = { fg = "color2" }
+"tag" = { fg = "color3", modifiers = ["bold"] }
+"type" = { fg = "color3", modifiers = ["bold"] }
+"type.enum.variant" = { fg = "foreground", modifiers = ["italic"] }
+"variable" = { fg = "foreground" }
+"variable.builtin" = { fg = "color8", modifiers = ["italic"] }
+"variable.parameter" = { fg ="color1", modifiers = ["italic"] }
+"identifier" = { fg ="color1", modifiers = ["italic"] }
+"members" = { fg = "color3", modifiers = ["bold"] }
 
-"ui.linenr.selected" = "color4"
-"ui.cursorline.primary" = { bg = "color1" }
-"ui.text.focus" = { fg = "color8", modifiers = ["bold"] }
-"ui.menu" = { fg = "color6", bg = "color1" }
-"ui.menu.selected" = { fg = "color8", bg = "color2" }
-"ui.virtual.ruler" = { bg = "color1" }
+"diff.plus" = { fg = "color2" }
+"diff.delta" = { fg = "color8", bg = "color17" }
+"diff.minus" = { fg = "color1" }
 
-"info" = "color8"
-"hint" = "color8"
+"ui.background" = { fg = "color5", bg = "color0" }
+"ui.cursor" =  { fg = "color0", bg = "color1", modifiers = ["dim"] }
+"ui.cursor.match" = { fg = "color5", modifiers = ["underlined"] }
+"ui.cursor.primary" = { bg = "color7", modifier = ["dim"] }
+"ui.help" = { fg = "foreground", bg = "color16" }
+"ui.linenr" = { fg = "color8" }
+"ui.linenr.selected" = { fg = "colormain1", bg = "color16" }
+"ui.menu" = { fg = "foreground", bg = "color17" }
+"ui.menu.selected" = { fg = "foreground", bg = "color1" }
+"ui.menu.highlighted" = { fg = "color6"}
+"ui.popup" = { fg = "color5", bg = "color17" }
+"ui.selection" = { bg = "color17" }
+"ui.selection.primary" = { bg = "color4", fg = "color0" }
+"ui.statusline" = { fg = "foreground", bg = "color16" }
+"ui.statusline.inactive" = { fg = "color8", bg = "color16" }
+"ui.text" = { fg = "foreground" }
+"ui.text.focus" = { fg = "color8" }
+"ui.window" = { fg = "color5" }
+"ui.virtual" = { fg = "color8" }
 
-# Polar Night
-# color0 - background color
-"ui.background" = { bg = "color0" }
+"error" = { fg = "color1" }
+"warning" = { fg = "color3" }
+"info" = { fg = "color4" }
+"hint" = { fg = "color8" }
+"diagnostic" = { modifiers = ["underlined"] }
 
-"ui.statusline.inactive" = { fg = "color8", bg = "color1" }
-"ui.statusline.normal" = { fg = "color0", bg = "color8" }
-"ui.statusline.insert" = { fg = "color0", bg = "color13" }
-"ui.statusline.select" = { fg = "color0", bg = "color15" }
-
-# color1 - status bars, panels, modals, autocompletion
-"ui.statusline" = { fg = "color4", bg = "color1" }
-"ui.popup" = { bg = "color1" }
-"ui.window" = { bg = "color1" }
-"ui.help" = { bg = "color1", fg = "color4" }
-
-# color2 - active line, highlighting
-"ui.selection" = { bg = "color2", fg = "color0" }
-"ui.cursor.match" = { bg = "color2", fg = "color0" }
-
-# color3 - comments, invisible/non-printable characters
-"comment" = { fg = "color3_bright", modifiers = ["italic"] }
-"ui.linenr" = "color3_bright"
-"ui.virtual.whitespace" = "color3_bright"
-
-# Snow Storm
-# color4 - cursor, variables, constants, attributes, fields
-"ui.cursor.primary" = { fg = "color4", modifiers = ["reversed"] }
-"attribute" = "color4"
-"variable" = "color4"
-"constant" = "color4"
-"variable.builtin" = "color4"
-"constant.builtin" = "color4"
-"namespace" = "color4"
-
-# color5 - subtle UI text
-
-# color6 - base text, punctuation
-"ui.text" = "color6"
-"punctuation" = "color6"
-
-# Frost
-# color7 - classes, types, primitives
-"type" = "color7"
-"type.builtin" = "color7"
-"label" = "color7"
-
-# color8 - declaration, methods, routines
-"constructor" = "color8"
-"function" = "color8"
-"function.macro" = "color8"
-"function.builtin" = "color8"
-
-# color9 - operator, tags, units, punctuations
-"punctuation.delimiter" = "color9"
-"operator" = "color9"
-"variable.other.member" = "color9"
-
-# color10 - keywords, special
-"keyword" = "color10"
-"keyword.directive" = "color10"
-"variable.parameter" = "color10"
-
-# Aurora
-# color11 - error
-"error" = "color11"
-
-# color12 - annotations, decorators
-"special" = "color12"
-"module" = "color12"
-
-# color13 - warnings, escape characters, regex
-"warning" = "color13"
-"constant.character.escape" = "color13"
-
-# color14 - strings
-"string" = "color14"
-
-# color15 - integer, floating point
-"constant.numeric" = "color15"
-
-# markup
-"markup.heading" = "color8"
-"markup.list" = "color9"
-"markup.bold" = { modifiers = ["bold"] }
-"markup.italic" = { modifiers = ["italic"] }
-"markup.link.text" = "color8"
-"markup.raw" = "color7"
-
-# vcs
-"diff.plus" = "color14"
-"diff.delta" = "color12"
-"diff.minus" = "color11"
+"markup.heading" = { fg = "color3", modifiers = ["bold"] }
+"markup.list" = "color8"
+"markup.bold" = { fg = "color1", modifiers = ["bold"] }
+"markup.italic" = { fg = "color8", modifiers = ["italic"] }
+"markup.link.url" = "color8"
+"markup.link.text" = "color5"
+"markup.quote" = { fg = "color8", modifiers = ["italic"] }
+"markup.raw" = { fg = "color8" }
 
 [palette]
-colormain1 = "{colormain1}"
+foreground = "{colorfg}"
 color0 = "{colorbg}"
-color1 = "{color0}"
+color1 = "{color1}"
 color2 = "{color2}"
-# we use a brighter color3 based on discussion here:
-# https://github.com/arcticicestudio/color/issues/94
-color3_bright = "{color8}"
-color4 = "{colormain1}"
+color3 = "{color3}"
+color4 = "{color4}"
+color5 = "{color5}"
 color6 = "{color6}"
 color7 = "{color7}"
-color8 = "{color3}"
+color8 = "{color8}"
 color9 = "{color9}"
 color10 = "{color10}"
 color11 = "{color11}"
 color12 = "{color12}"
 color13 = "{color13}"
 color14 = "{color14}"
-color15 = "{colorfg}"
+color15 = "{color15}"
+color16 = "{colorbg}"
+color17 = "{color8}"
+colormain1 = "{colormain1}"

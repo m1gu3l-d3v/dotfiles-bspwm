@@ -33,7 +33,7 @@ super + Escape
 #
 # quit/restart bspwm
 super + alt + {q,r}
-  bspc {quit, wm -r}
+  {killall polybar; bspc quit, bspc wm -r}
 
 # close and kill
 super + {_,shift + }q
@@ -59,36 +59,37 @@ super + bracket{left,right}
   bspc desktop -f {prev,next}.local
 
 # focus the node in the given direction
-super + {_,shift + }{Left,Down,Up,Right}
+super + {_,shift + }{h,j,k,l}
   bspc node -{f,s} {west,south,north,east}
   
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
   bspc {desktop -f,node -d} '^{1-9,10}'
 
-# focus the last node/desktop #with problems, I change "grave" to "bar" notation
+# focus the last node/desktop
+# focus the last node/desktop
 super + {bar, Tab}
-  bspc {node,desktop} -f last
+	bspc {node,desktop} -f last
 
 #
 # move/resize
 #
 # expand/contract a window
-super + alt + {Left,Down,Up,Right}
+super + alt + {h,j,k,l}
   bspc node -z {left -20 0 || bspc node -z right -20 0, \
     bottom 0 20 || bspc node -z top 0 20,\
     top 0 -20 || bspc node -z bottom 0 -20,\
     right 20 0 || bspc node -z left 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {Left,Down,Up,Right}
+super + alt + shift + {h,j,k,l}
   bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 #
 # preselect
 #
 # preselect the direction
-super + ctrl + {Left,Down,Up,Right}
+super + ctrl + {h,j,k,l}
   bspc node -p {west,south,north,east}
 
 # preselect the ratio
@@ -132,9 +133,12 @@ super + { , shift + } a
   cd $(xdg-user-dir PICTURES)/Screenshots/ && scrot Screenshot.png { --select --line mode=edge, } -e 'xclip -selection clipboard -target image/png -i $f'
 #  flameshot {gui,screen}
 
-# Neovim
+# Codium
 super + e
-  alacritty -e nvim
+  codium
+## Neovim
+#super + e
+#  alacritty -e nvim
 
 # Sysfetch
 super + y
@@ -156,7 +160,7 @@ super + p
   ~/.config/rofi/scripts/powermenu.sh
 
 # Swap layout
-alt + ctrl + super + {Left,Down,Up,Right,n,m,e,t}
+alt + ctrl + super + {h,j,k,l,n,m,e,t}
   bsp-layout set {tall && bspc node -s west, \
     rwide && bspc node -s south, \
     wide && bspc node -s north, \

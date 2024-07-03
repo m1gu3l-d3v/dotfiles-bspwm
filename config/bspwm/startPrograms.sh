@@ -5,12 +5,6 @@ bspc config active_border_color "$colormain1"
 bspc config focused_border_color "$color15"
 bspc config presel_feedback_color "$colormain1"
 
-# Clipboard
-#if ! pgrep -x copyq > /dev/null; then copyq & fi
-
-# Flameshot
-#if ! pgrep -x flameshot > /dev/null; then flameshot & fi
-
 # Dunst
 if ! pgrep -x dunst > /dev/null; then dunst & fi
 
@@ -29,13 +23,6 @@ thunar --daemon &
 
 # nitrogen
 nitrogen --restore &
-
-# Pywal Reload
-#wal -Rn &
-#wal -Rntq &
-
-# Colors
-~/.config/colorschemes/script
 
 # Polybar initialization
 if ! pgrep -f polybar > /dev/null; then "$HOME/.config/polybar/launch.sh" & fi

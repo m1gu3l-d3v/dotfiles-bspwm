@@ -112,7 +112,7 @@ cd ~/temptemptemp/Vimix-cursors && sudo ./install.sh
 rm -rf temptemptemp/
 
 # OOMOX
-sudo pacman -S --needed gettext libgdk-pixbuf2.0-dev libxml2-utils gtk2-engines-murrine librsvg2-bin libgtk-3-dev bc sassc sed grep
+sudo pacman -S gettext libgdk-pixbuf2.0-dev libxml2-utils gtk2-engines-murrine librsvg2-bin libgtk-3-dev bc sassc sed grep
 pip install pillow --break-system-packages
 cd ~/ && git clone https://github.com/themix-project/oomox.git --recursive ~/.oomox/
 cd ~/.oomox/ && make -f po.mk install
@@ -145,10 +145,10 @@ sed -i "s|/home/mike/.config/neofetch/hack3.txt|/home/$(whoami)/.config/neofetch
 
 # Packages
 # For use startx ("display manager") https://wiki.archlinux.org/title/xinit
-sudo pacman -S xinit x11-utils -y
+sudo pacman -S xorg-xinit xorg-xprop xorg-xwininfo xorg-xrandr xorg-xinput -y
 
 # Basic and recomended packages for bspwm
-sudo pacman -S --needed bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp nitrogen dunst mpd ncmpcpp xclip xsettingsd psmisc picom coreutils unrar zip policykit-1-gnome zsh zsh-autosuggestions imagemagick neovim nodejs npm ripgrep -y
+sudo pacman -S bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp nitrogen dunst mpd ncmpcpp xclip xsettingsd psmisc picom coreutils unrar zip policykit-1-gnome zsh zsh-autosuggestions imagemagick neovim nodejs npm ripgrep -y
 
 # Solution: Slow startup for applications
 sudo -Rs xdg-desktop-portal-gtk

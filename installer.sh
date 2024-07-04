@@ -102,6 +102,7 @@ echo 'source $HOME/.aliases' >> ~/.zshenv
 
 # Wallpapers
 git clone https://github.com/m1gu3l-d3v/wallpapers ~/temptemptemp/wallpapers/
+sudo mkdir -p /usr/share/backgrounds/wallpapers/
 sudo mv ~/temptemptemp/wallpapers /usr/share/backgrounds/wallpapers/
 
 # Vimix-cursors

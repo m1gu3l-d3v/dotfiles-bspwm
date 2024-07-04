@@ -42,7 +42,7 @@ truncate -s 0 ~/.xsettingsd
 {
   echo "Net/ThemeName \"oomox-${colorscheme}\""
   echo "Net/IconThemeName \"oomox-${colorscheme}\""
-  echo "Net/FontName \"$fontname $fontsize\""
+  echo "Net/FontName \"${fontname} ${fontsize}\""
 } >> ~/.xsettingsd
 
 # Gtk 3
@@ -54,7 +54,7 @@ truncate -s 0 ~/.config/gtk-3.0/settings.ini
   echo "gtk-theme-name=oomox-${colorscheme}"
   echo "gtk-icon-theme-name=oomox-${colorscheme}"
   echo "gtk-font-name=${fontname} ${fontsize}"
-  echo "gtk-cursor-theme-name=$cursorname"
+  echo "gtk-cursor-theme-name=${cursorname}"
   echo "gtk-cursor-theme-size=0"
   echo "gtk-toolbar-style=GTK_TOOLBAR_BOTH"
   echo "gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR"
@@ -85,7 +85,7 @@ done
   echo "gtk-font-name=\"${fontname} Light ${fontsize}\""
   echo "gtk-theme-name=\"oomox-${colorscheme}\""
   echo "gtk-icon-theme-name=\"oomox-${colorscheme}\""
-  echo "gtk-cursor-theme-name=\"$cursorname\""
+  echo "gtk-cursor-theme-name=\"${cursorname}\""
 } >> ~/.gtkrc-2.0
 
 # QT

@@ -8,22 +8,22 @@ sudo pacman -Syyu
 dir_actual=$(pwd)
 
 # Layouts with bsp-layout (optional)
-#sudo pacman -S wget -y
+#sudo pacman -S wget 
 #wget -O - https://raw.githubusercontent.com/phenax/bsp-layout/master/install.sh | bash -
 
 # Java (for me)
-#sudo pacman -S default-jdk -y
+#sudo pacman -S default-jdk 
 echo '_JAVA_AWT_WM_NONREPARENTING=1' | sudo tee -a /etc/environment
 echo 'QT_QPA_PLATFORMTHEME=qt5ct' | sudo tee -a /etc/environment
 
 # Sound
-sudo pacman -S pulseaudio -y #Comment out this line if you already have an audio server (Pipewire)
+sudo pacman -S pulseaudio  #Comment out this line if you already have an audio server (Pipewire)
 
 # Volume initialize in 100%
 pactl set-sink-volume @DEFAULT_SINK@ 100%
 
 # Updates user default directories in XDG-based desktop environments
-sudo pacman -S xdg-user-dirs -y
+sudo pacman -S xdg-user-dirs 
 xdg-user-dirs-update
 xdg-user-dirs
 
@@ -63,9 +63,9 @@ mkdir -p ~/.local/bin/
 mkdir -p $(xdg-user-dir PICTURES)/Screenshots/
 
 # Set Icons and Themes
-sudo pacman -S wget -y
+sudo pacman -S wget 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hermit.zip
-sudo pacman -S unzip -y
+sudo pacman -S unzip 
 unzip -n Hermit.zip
 mv -f *.otf ~/.fonts/HurmitNerdFont/
 
@@ -112,7 +112,7 @@ cd ~/temptemptemp/Vimix-cursors && sudo ./install.sh
 rm -rf temptemptemp/
 
 # OOMOX
-sudo pacman -S gettext libgdk-pixbuf2.0-dev libxml2-utils gtk2-engines-murrine librsvg2-bin libgtk-3-dev bc sassc sed grep
+sudo pacman -S bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines librsvg
 pip install pillow --break-system-packages
 cd ~/ && git clone https://github.com/themix-project/oomox.git --recursive ~/.oomox/
 cd ~/.oomox/ && make -f po.mk install
@@ -145,10 +145,10 @@ sed -i "s|/home/mike/.config/neofetch/hack3.txt|/home/$(whoami)/.config/neofetch
 
 # Packages
 # For use startx ("display manager") https://wiki.archlinux.org/title/xinit
-sudo pacman -S xorg-xinit xorg-xprop xorg-xwininfo xorg-xrandr xorg-xinput -y
+sudo pacman -S xorg-xinit xorg-server xorg-xprop xorg-xwininfo xorg-xrandr xorg-xinput 
 
 # Basic and recomended packages for bspwm
-sudo pacman -S bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp nitrogen dunst mpd ncmpcpp xclip xsettingsd psmisc picom coreutils unrar zip policykit-1-gnome zsh zsh-autosuggestions imagemagick neovim nodejs npm ripgrep -y
+sudo pacman -S bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp nitrogen dunst mpd ncmpcpp xclip xsettingsd psmisc picom coreutils unrar zip polkit-gnome zsh zsh-autosuggestions imagemagick neovim nodejs npm ripgrep 
 
 # Solution: Slow startup for applications
 sudo -Rs xdg-desktop-portal-gtk

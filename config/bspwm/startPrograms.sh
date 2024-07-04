@@ -13,9 +13,11 @@ if ! pgrep -x dunst > /dev/null; then dunst & fi
 if ! pgrep -x picom > /dev/null; then picom & fi
 
 # Polkit
-#/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & # for Debian 12
-#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & # for Arch
-if ! pgrep -af polkit-gnome-authentication-agent-1 > /dev/null; then /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & fi
+if [ -x "$(command -v apt)" ]; then
+  if ! pgrep -af polkit-gnome-authentication-agent-1 > /dev/null; then /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & fi
+elif [ -x "$(command -v pacman)" ]; then
+  if ! pgrep -af polkit-gnome-authentication-agent-1 > /dev/null; then /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & fi
+fi
 
 # thunar daemon
 #if ! pgrep -af thunar > /dev/null; then thunar --daemon & fi

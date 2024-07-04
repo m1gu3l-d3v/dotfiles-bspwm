@@ -12,8 +12,9 @@ Este repositorio contiene mi configuración personalizada para el gestor de vent
 
 ## Instalación
 
-Para instalar y configurar BSPWM, sigue estos pasos:
-##### Nota: [installer.sh](https://github.com/m1gu3l-d3v/dotfiles/blob/main/installer.sh) solo funcionara en **Linux Debian** y sus distribuciones derivadas, pero usted puede copiar los archivos de puntos en sus ubicaciones respectivas, el installer.sh deberia funcionar si usted comenta las partes que impliquen el uso de gestor de paquetes(sudo apt install) y hacerlo con su distro respectiva.
+### Para instalar y configurar BSPWM, sigue estos pasos:
+
+#### Para Debian y derivadas:
 
 1. Clona este repositorio en tu directorio home:
 
@@ -24,17 +25,41 @@ Para instalar y configurar BSPWM, sigue estos pasos:
 2. Otorga permisos de ejecución al script de instalación:
 
     ```bash
-    chmod +x installer.sh
+    chmod +x installer-apt.sh
     ```
 
 3. Ejecuta el script de instalación:
 
     ```bash
-    ./installer.sh
+    ./installer-apt.sh
     ```
 4. Utilidades basicas (100% opcionales):
    ```bash
    sudo apt install xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
+   ```
+
+#### Para Arch Linux y derivadas:
+
+1. Clona este repositorio en tu directorio home:
+
+    ```bash
+    cd ~/ && git clone https://github.com/m1gu3l-d3v/dotfiles && cd ~/dotfiles
+    ```
+
+2. Otorga permisos de ejecución al script de instalación:
+
+    ```bash
+    chmod +x installer-pacman.sh
+    ```
+
+3. Ejecuta el script de instalación:
+
+    ```bash
+    ./installer-pacman.sh
+    ```
+4. Utilidades basicas (100% opcionales):
+   ```bash
+   sudo pacman -S xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
    ```
 
 ## Temas Disponibles

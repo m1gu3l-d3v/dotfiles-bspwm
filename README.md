@@ -23,28 +23,53 @@ This repository contains my customized configuration for the BSPWM window manage
 ## Installation
 
 To install and configure BSPWM, follow these steps:
-##### Note 1: [installer.sh](https://github.com/m1gu3l-d3v/dotfiles/blob/main/installer.sh) will only work on Linux Debian and its derivative distributions. However, you can manually copy the dotfiles to their respective locations. The installer.sh should work if you comment out the parts that involve package manager usage (sudo apt install) and adapt it for your specific distribution.
+
+#### For Debian and derivatives:
 
 1. Clone this repository into your home directory:
+
     ```bash
     cd ~/ && git clone https://github.com/m1gu3l-d3v/dotfiles && cd ~/dotfiles
     ```
 
-2. Grant execute permission to the installation script:
+2. Grant execution permissions to the installer script:
 
     ```bash
-    chmod +x installer.sh
+    chmod +x installer-apt.sh
     ```
 
-3. Run the installation script:
+3. Run the installer script:
 
     ```bash
-    ./installer.sh
+    ./installer-apt.sh
     ```
-
-4. Basic Utilities(100% optionals):
+4. Basic utilities (100% optional):
    ```bash
    sudo apt install xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
+   ```
+
+#### Para Arch Linux y derivadas:
+
+1. Clone this repository into your home directory:
+
+    ```bash
+    cd ~/ && git clone https://github.com/m1gu3l-d3v/dotfiles && cd ~/dotfiles
+    ```
+
+2. Grant execution permissions to the installer script:
+
+    ```bash
+    chmod +x installer-pacman.sh
+    ```
+
+3. Run the installer script:
+
+    ```bash
+    ./installer-pacman.sh
+    ```
+4. Basic utilities (100% optional):
+   ```bash
+   sudo pacman -S xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
    ```
 
 ## Available Themes

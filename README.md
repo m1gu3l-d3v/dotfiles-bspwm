@@ -24,7 +24,7 @@ This repository contains my customized configuration for the BSPWM window manage
 
 To install and configure BSPWM, follow these steps:
 
-#### For Debian and derivatives:
+#### Debian based distributions:
 
 1. Clone this repository into your home directory:
 
@@ -48,7 +48,7 @@ To install and configure BSPWM, follow these steps:
    sudo apt install firefox xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
    ```
 
-#### Para Arch Linux y derivadas:
+#### Arch based distributions:
 
 1. Clone this repository into your home directory:
 
@@ -67,6 +67,7 @@ To install and configure BSPWM, follow these steps:
     ```bash
     ./installer-pacman.sh
     ```
+
 4. Basic utilities (100% optional):
    ```bash
    sudo pacman -S firefox xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3

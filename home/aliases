@@ -38,14 +38,17 @@ alias toMp4='sh -c '\''ffmpeg -i "$1" -codec:v copy -codec:a copy "${1%.*}.mp4"'
 if [ "$SHELL" = "/bin/zsh" ]; then
   # PROMPT
   setopt PROMPT_SUBST
+  source ~/.zsh/git-prompt.zsh/git-prompt.zsh
+
   function dir_icon {
     if [[ "$PWD" == "$HOME" ]]; then
-      echo "%B%F{white}%f%b"
+      echo ""
     else
-      echo "%B%F{white}%f%b"
+      echo "%B%~%b "
     fi
   }
-  PS1='%B%F{white}%f%b  %B%F{white}%n%f%b $(dir_icon)  %B%F{white}%~%f%b${vcs_info_msg_0_} %(?.%B%F{white}.%F{white})%f%b '
+  PROMPT='$(dir_icon)%F{red}≻≻≻%f '
+  RPROMPT='$(gitprompt)'
 
   # COMPLETION
   autoload -U compinit

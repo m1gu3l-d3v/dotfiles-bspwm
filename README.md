@@ -70,7 +70,7 @@ To install and configure BSPWM, follow these steps:
 
 4. Basic utilities (100% optional):
    ```bash
-   sudo pacman -S firefox xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
+   sudo pacman -S firefox xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop ristretto mpv libreoffice-still
    ```
 
 ## Available Themes

@@ -59,7 +59,7 @@ Este repositorio contiene mi configuración personalizada para el gestor de vent
     ```
 4. Utilidades basicas (100% opcionales):
    ```bash
-   sudo pacman -S firefox xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
+   sudo pacman -S firefox xfce4-settings lxappearance thunar-archive-plugin scrot btop ristretto mpv libreoffice-still
    ```
 
 ## Temas Disponibles

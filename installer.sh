@@ -167,10 +167,6 @@ systemctl --user enable --now mpd.service
 # zsh
 sudo chsh $(whoami) -s $(which zsh)
 
-# Set color
-~/.config/colorschemes/script CatppuccinMocha
-~/.config/colorschemes/gtk-gen
-
 # Zsh PROMPT git
 mkdir -p ~/.zsh
 git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.zsh/git-prompt.zsh
@@ -180,3 +176,10 @@ echo "source ~/.zsh/git-prompt.zsh/examples/rprompt.zsh" >> .zshrc
 # Set terminal default in Gnome and Cinnamon
 gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/alacritty
 gsettings set org.cinnamon.desktop.default-applications.terminal exec /usr/bin/alacritty
+
+# Set Background
+nitrogen --save --set-zoom-fill /usr/share/backgrounds/wallpapers/Catppuccin/catppuccin28.jpg
+
+# Set color
+~/.config/colorschemes/script RosePine
+~/.config/colorschemes/gtk-gen

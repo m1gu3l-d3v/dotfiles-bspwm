@@ -35,7 +35,7 @@ Este repositorio contiene mi configuración personalizada para el gestor de vent
     ```
 4. Utilidades basicas (100% opcionales):
    ```bash
-   sudo apt install xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
+   sudo apt install firefox xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
    ```
 
 #### Para Arch Linux y derivadas:
@@ -59,7 +59,7 @@ Este repositorio contiene mi configuración personalizada para el gestor de vent
     ```
 4. Utilidades basicas (100% opcionales):
    ```bash
-   sudo pacman -S xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
+   sudo pacman -S firefox xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
    ```
 
 ## Temas Disponibles

@@ -45,7 +45,7 @@ To install and configure BSPWM, follow these steps:
     ```
 4. Basic utilities (100% optional):
    ```bash
-   sudo apt install xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
+   sudo apt install firefox xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
    ```
 
 #### Para Arch Linux y derivadas:
@@ -69,7 +69,7 @@ To install and configure BSPWM, follow these steps:
     ```
 4. Basic utilities (100% optional):
    ```bash
-   sudo pacman -S xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
+   sudo pacman -S firefox xfce4-settings lxappearance thunar-archive-plugin scrot tty-clock btop neofetch ristretto mpv libreoffice libreoffice-gtk3
    ```
 
 ## Available Themes

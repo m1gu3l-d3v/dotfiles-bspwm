@@ -8,22 +8,22 @@ sudo apt update && sudo apt upgrade
 dir_actual=$(pwd)
 
 # Layouts with bsp-layout (optional)
-#sudo apt install wget
+#sudo apt install wget -y
 #wget -O - https://raw.githubusercontent.com/phenax/bsp-layout/master/install.sh | bash -
 
 # Java (for me)
-#sudo apt install default-jdk
+#sudo apt install default-jdk -y
 echo '_JAVA_AWT_WM_NONREPARENTING=1' | sudo tee -a /etc/environment
 echo 'QT_QPA_PLATFORMTHEME=qt5ct' | sudo tee -a /etc/environment
 
 # Sound
-sudo apt install pulseaudio #Comment out this line if you already have an audio server (Pipewire)
+sudo apt install pulseaudio -y #Comment out this line if you already have an audio server (Pipewire)
 
 # Volume initialize in 100%
 pactl set-sink-volume @DEFAULT_SINK@ 100%
 
 # Updates user default directories in XDG-based desktop environments
-sudo apt install xdg-user-dirs
+sudo apt install xdg-user-dirs -y
 xdg-user-dirs-update
 xdg-user-dirs
 
@@ -63,10 +63,11 @@ mkdir -p ~/.local/bin/
 mkdir -p $(xdg-user-dir PICTURES)/Screenshots/
 
 # Set Icons and Themes
+sudo apt install wget
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hermit.zip
 sudo apt install unzip
 unzip Hermit.zip
-mv -f *.otf ~/.fonts/HurmitNerdFont
+mv -f *.otf ~/.fonts/HurmitNerdFont/
 
 # HOME
 mv home/aliases ~/.aliases
@@ -146,10 +147,10 @@ sed -i "s|/home/mike/.config/neofetch/hack3.txt|/home/$(whoami)/.config/neofetch
 
 # Packages
 # For use startx ("display manager") https://wiki.archlinux.org/title/xinit
-sudo apt install xinit x11-utils
+sudo apt install xinit x11-utils -y
 
 # Basic and recomended packages for bspwm
-sudo apt install bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp nitrogen dunst mpd ncmpcpp xclip xsettingsd psmisc picom coreutils unrar zip policykit-1-gnome zsh zsh-autosuggestions imagemagick neovim nodejs npm ripgrep
+sudo apt install bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp nitrogen dunst mpd ncmpcpp xclip xsettingsd psmisc picom coreutils unrar zip policykit-1-gnome zsh zsh-autosuggestions imagemagick neovim nodejs npm ripgrep -y
 
 sudo apt update && sudo apt upgrade
 
@@ -163,7 +164,7 @@ sudo systemctl disable mpd.service
 systemctl --user enable --now mpd.service
 
 # zsh
-chsh $(whoami) -s /bin/zsh
+sudo chsh $(whoami) -s /bin/zsh
 
 # Set color
 ~/.config/colorschemes/script CatppuccinMocha

@@ -74,6 +74,8 @@ mv home/gtkrc-2.0 ~/.gtkrc-2.0
 mv home/tmux.conf ~/.tmux.conf
 mv home/xinitrc ~/.xinitrc
 mv home/xsettingsd ~/.xsettingsd
+mv home/templates/ ~/.templates/
+mv home/icons/ ~/.icons/
 
 # Execution Permissions
 chmod +x ~/.aliases
@@ -100,13 +102,17 @@ echo 'source $HOME/.aliases' >> ~/.zshenv
 # Wallpapers
 git clone https://github.com/m1gu3l-d3v/wallpapers ~/temptemptemp/wallpapers/
 sudo mv ~/temptemptemp/wallpapers /usr/share/backgrounds/wallpapers/
+
+# Vimix-cursors
+git clone https://github.com/vinceliuice/Vimix-cursors ~/temptemptemp/Vimix-cursors
+cd ~/temptemptemp/Vimix-cursors && sudo ./install.sh
+
 rm -rf temptemptemp/
 
 # OOMOX
 sudo apt install gettext libgdk-pixbuf2.0-dev libxml2-utils gtk2-engines-murrine librsvg2-bin libgtk-3-dev bc sassc
 pip install pillow --break-system-packages
-cd ~/ && git clone https://github.com/themix-project/oomox.git --recursive
-mv ~/oomox/ ~/.oomox/
+cd ~/ && git clone https://github.com/themix-project/oomox.git --recursive ~/.oomox/
 cd ~/.oomox/ && make -f po.mk install
 
 # Vimix-cursors

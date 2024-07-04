@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ $(tty) == /dev/tty[1-6] ]]; then
+  ~/.cache/colorschemes/tty.sh
+fi
+
 export VISUAL="${EDITOR}"
 export EDITOR="nvim"
 export TERMINAL="alacritty"

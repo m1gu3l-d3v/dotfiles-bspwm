@@ -1,5 +1,9 @@
 #!/bin/bash
 
+fontname="Hurmit Nerd Font"
+fontsize=12
+cursorname="Vimix-cursors"
+
 # Verifica si se ha proporcionado un argumento
 if [ -n "$1" ]; then
   # Si se proporciona un argumento, crea el archivo y escribe el argumento en él
@@ -38,17 +42,19 @@ truncate -s 0 ~/.xsettingsd
 {
   echo "Net/ThemeName \"oomox-${colorscheme}\""
   echo "Net/IconThemeName \"oomox-${colorscheme}\""
+  echo "Net/FontName \"$fontname $fontsize\""
 } >> ~/.xsettingsd
 
 # Gtk 3
+mkdir ~/.config/gtk-3.0/
 touch ~/.config/gtk-3.0/settings.ini
 truncate -s 0 ~/.config/gtk-3.0/settings.ini
 {
   echo "[Settings]"
   echo "gtk-theme-name=oomox-${colorscheme}"
   echo "gtk-icon-theme-name=oomox-${colorscheme}"
-  echo "gtk-font-name=Hurmit Nerd Font 12"
-  echo "gtk-cursor-theme-name=Vimix-cursors"
+  echo "gtk-font-name=${fontname} ${fontsize}"
+  echo "gtk-cursor-theme-name=$cursorname"
   echo "gtk-cursor-theme-size=0"
   echo "gtk-toolbar-style=GTK_TOOLBAR_BOTH"
   echo "gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR"
@@ -66,22 +72,25 @@ touch ~/.gtkrc.mine
 touch ~/.gtkrc-2.0
 truncate -s 0 ~/.gtkrc.mine
 truncate -s 0 ~/.gtkrc-2.0
+for file in ~/.gtkrc-2.0 ~/.gtkrc.mine; do
+  {
+    echo "include \"/home/mike/.themes/oomox-${colorscheme}/gtk-2.0/gtkrc\""
+    echo "gtk-font-name=\"${fontname} Light ${fontsize}\""
+    echo "gtk-theme-name=\"oomox-${colorscheme}\""
+    echo "gtk-icon-theme-name=\"oomox-${colorscheme}\""
+  } >> $file
+done
 {
   echo "include \"/home/mike/.themes/oomox-${colorscheme}/gtk-2.0/gtkrc\""
-  echo "gtk-font-name=\"Hurmit Nerd Font Light 12\""
+  echo "gtk-font-name=\"${fontname} Light ${fontsize}\""
   echo "gtk-theme-name=\"oomox-${colorscheme}\""
   echo "gtk-icon-theme-name=\"oomox-${colorscheme}\""
-  echo "gtk-cursor-theme-name=\"Vimix-cursors\""
-} >> ~/.gtkrc.mine
-{
-  echo "include \"/home/mike/.themes/oomox-${colorscheme}/gtk-2.0/gtkrc\""
-  echo "gtk-font-name=\"Hurmit Nerd Font Light 12\""
-  echo "gtk-theme-name=\"oomox-${colorscheme}\""
-  echo "gtk-icon-theme-name=\"oomox-${colorscheme}\""
-  echo "gtk-cursor-theme-name=\"Vimix-cursors\""
+  echo "gtk-cursor-theme-name=\"$cursorname\""
 } >> ~/.gtkrc-2.0
 
 # QT
+mkdir -p ~/.config/qt5ct/
+mkdir -p ~/.config/qt6ct/
 touch ~/.config/qt5ct/qt5ct.conf
 touch ~/.config/qt6ct/qt6ct.conf
 truncate -s 0 ~/.config/qt5ct/qt5ct.conf
@@ -100,8 +109,13 @@ for file in ~/.config/qt5ct/qt5ct.conf ~/.config/qt6ct/qt6ct.conf; do
     echo "style=Fusion"
 
     echo "[Fonts]"
-    echo "fixed=@Variant(\\0\\0\\0@\\0\\0\\0 \\0H\\0u\\0r\\0m\\0i\\0t\\0 \\0N\\0erd\\0 \\0Font@\"\\0\\0\\0\\0\\0\\0\\xff\\xff\\xff\\xff\\x5\\x1\\0\\x19\\x10)"
-    echo "general=@Variant(\\0\\0\\0@\\0\\0\\0 \\0H\\0u\\0r\\0m\\0i\\0t\\0 \\0N\\0erd\\0 \\0Font@\"\\0\\0\\0\\0\\0\\0\\xff\\xff\\xff\\xff\\x5\\x1\\0\\x19\\x10)"
+    if [[ "$file" == *qt5ct.conf ]]; then
+      echo "fixed=\"@String(Hurmit Ne\x7264 F\x6f6e\x7440\0\0,-1,1642537,10,99,1,0,1,0,0)\""
+      echo "general=\"${fontname},${fontsize},-1,5,50,0,0,0,0,0,Regular\""
+    elif [[ "$file" == *qt6ct.conf ]]; then
+      echo "fixed=\"@String(Hurmit Ne牤 F潮瑀\0\0,-1,1642537,10,900,1,0,1,0,0,0,0,0,0,0,103)\""
+      echo "general=\"${fontname},${fontsize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular\""
+    fi
 
     echo "[Interface]"
     echo "activate_item_on_single_click=1"

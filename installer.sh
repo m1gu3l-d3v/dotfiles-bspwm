@@ -170,8 +170,6 @@ sudo chsh $(whoami) -s $(which zsh)
 # Zsh PROMPT git
 mkdir -p ~/.zsh
 git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.zsh/git-prompt.zsh
-echo "source ~/.zsh/git-prompt.zsh/git-prompt.zsh" >> .zshrc
-echo "source ~/.zsh/git-prompt.zsh/examples/rprompt.zsh" >> .zshrc
 
 # Set terminal default in Gnome and Cinnamon
 gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/alacritty

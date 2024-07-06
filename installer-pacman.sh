@@ -137,6 +137,10 @@ mkdir -p ~/.config/btop/themes/ && ln -s ~/.cache/colorschemes/btop.theme ~/.con
 rm ~/.config/bpytop/themes/btop.theme
 mkdir -p ~/.config/bpytop/themes/ && ln -s ~/.cache/colorschemes/btop.theme ~/.config/bpytop/themes/btop.theme
 
+# screenkey theme (symbolic link)
+rm ~/.config/screenkey.json
+ln -s ~/.cache/colorschemes/screenkey.json ~/.config/screenkey.json
+
 source ~/.bashrc
 source ~/.zshrc
 

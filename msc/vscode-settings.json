@@ -93,7 +93,7 @@
     },
     {
       "before": ["<leader>", "q", "a"],
-      "commands": ["workbench.action.closeAllEditors"]
+      "commands": ["workbench.action.closeEditorsInGroup"]
     },
     {
       "before": ["g", "x"],

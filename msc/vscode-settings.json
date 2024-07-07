@@ -6,10 +6,10 @@
     "rgba(255,255,64, 0.2)",
     "rgba(127,255,127, 0.2)",
     "rgba(255,127,255, 0.2)",
-    "rgba(79,236,236, 0.2)",
+    "rgba(79,236,236, 0.2)"
   ],
   // styles
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Rosé Pine",
   "workbench.iconTheme": "catppuccin-mocha",
   "editor.fontFamily": "'Hurmit Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
   "workbench.sideBar.location": "right",
@@ -18,9 +18,6 @@
   "workbench.colorCustomizations": {
     // colors here
   },
-
-  // workbench
-  "breadcrumbs.enabled": false,
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
   "workbench.tips.enabled": false,
@@ -47,7 +44,6 @@
   "editor.scrollbar.horizontalScrollbarSize": 4,
   "editor.fontLigatures": true,
   "editor.hover.enabled": false,
-  "editor.minimap.enabled": false,
   "editor.detectIndentation": true,
   "editor.guides.indentation": false,
   "editor.overviewRulerBorder": false,
@@ -78,14 +74,6 @@
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
-    //{
-    //  "before": ["k", "k"],
-    //  "after": ["<CR>"]
-    //},
-    //{
-    //  "before": ["j", "j"],
-    //  "after": ["<Esc>"]
-    //}
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -98,23 +86,14 @@
       "silent": true
     },
     {
-      "before": ["<leader>", "w", "q"],
-      "commands": [
-        "workbench.action.files.save",
-        "workbench.action.closeActiveEditor"
-      ]
-    },
-    {
       "before": ["<leader>", "q", "q"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "commands": [
+        "workbench.action.closeActiveEditor",
+      ],
     },
     {
       "before": ["<leader>", "q", "a"],
       "commands": ["workbench.action.closeAllEditors"]
-    },
-    {
-      "before": ["<leader>", "q", "s"],
-      "commands": ["workbench.action.closeActiveEditor"]
     },
     {
       "before": ["g", "x"],
@@ -127,34 +106,15 @@
     {
       "before": ["<leader>", "s", "v"],
       "commands": ["workbench.action.splitEditor"]
+      //"commands": ["workbench.action.splitEditorInGroup"]
     },
     {
       "before": ["<leader>", "s", "h"],
       "commands": ["workbench.action.splitEditorOrthogonal"]
     },
     {
-      "before": ["<leader>", "h"],
-      "commands": ["workbench.action.focusLeftGroup"]
-    },
-    {
-      "before": ["<leader>", "j"],
-      "commands": ["workbench.action.focusBelowGroup"]
-    },
-    {
-      "before": ["<leader>", "k"],
-      "commands": ["workbench.action.focusAboveGroup"]
-    },
-    {
-        "before": ["<leader>", "l"],
-        "commands": ["workbench.action.focusRightGroup"]
-    },
-    {
       "before": ["<leader>", "t", "o"],
       "commands": ["workbench.action.files.newUntitledFile"]
-    },
-    {
-      "before": ["<leader>", "t", "x"],
-      "commands": ["workbench.action.closeActiveEditor"]
     },
     {
       "before": ["<leader>", "t", "n"],
@@ -167,10 +127,6 @@
     {
       "before": ["<leader>", "s", "m"],
       "commands": ["workbench.action.toggleEditorWidths"]
-    },
-    {
-      "before": ["<leader>", "e", "e"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
     },
     {
       "before": ["<leader>", "e", "f"],
@@ -188,7 +144,8 @@
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
-    "<C-f>": false
+    "<C-f>": false,
+    "<C-b>": false,
   },
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
@@ -200,4 +157,12 @@
   "files.associations": {
     "*.jsp": "html"
   },
+  "editor.tabCompletion": "on",
+  "editor.tabFocusMode": true,
+  "editor.minimap.enabled": false,
+
+  "yaml.format.enable": true,
+  "notebook.formatOnSave.enabled": true,
+  "workbench.editor.closeEmptyGroups": false,
+  "workbench.editor.revealIfOpen": false
 }

@@ -1,0 +1,21 @@
+[
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "ctrl+tab",
+    "command": "runCommands",
+    "args" : {
+      "commands" : [
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.quickOpenPreviousRecentlyUsedEditor"
+      ]
+    },
+    "when": "!inEditorsPicker"
+  }
+]

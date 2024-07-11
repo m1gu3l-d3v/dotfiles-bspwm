@@ -12,10 +12,23 @@
     "command": "runCommands",
     "args" : {
       "commands" : [
-        "workbench.action.focusActiveEditorGroup",
         "workbench.action.quickOpenPreviousRecentlyUsedEditor"
       ]
     },
     "when": "!inEditorsPicker"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+m",
+    "command": "editor.action.toggleTabFocusMode"
   }
 ]

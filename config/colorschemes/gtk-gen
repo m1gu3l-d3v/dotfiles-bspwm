@@ -80,13 +80,6 @@ for file in ~/.gtkrc-2.0 ~/.gtkrc.mine; do
     echo "gtk-icon-theme-name=\"oomox-${colorscheme}\""
   } >> $file
 done
-{
-  echo "include \"/home/mike/.themes/oomox-${colorscheme}/gtk-2.0/gtkrc\""
-  echo "gtk-font-name=\"${fontname} Light ${fontsize}\""
-  echo "gtk-theme-name=\"oomox-${colorscheme}\""
-  echo "gtk-icon-theme-name=\"oomox-${colorscheme}\""
-  echo "gtk-cursor-theme-name=\"${cursorname}\""
-} >> ~/.gtkrc-2.0
 
 # QT
 mkdir -p ~/.config/qt5ct/

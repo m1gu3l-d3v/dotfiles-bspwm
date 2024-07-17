@@ -78,6 +78,7 @@ for file in ~/.gtkrc-2.0 ~/.gtkrc.mine; do
     echo "gtk-font-name=\"${fontname} Light ${fontsize}\""
     echo "gtk-theme-name=\"oomox-${colorscheme}\""
     echo "gtk-icon-theme-name=\"oomox-${colorscheme}\""
+    echo "gtk-cursor-theme-name=\"Vimix-cursors\""
   } >> $file
 done
 

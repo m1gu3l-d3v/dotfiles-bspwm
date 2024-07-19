@@ -165,7 +165,7 @@ alt + ctrl + super + {h,j,k,l,n,m,e,t}
     rwide && bspc node -s south, \
     wide && bspc node -s north, \
     rtall && bspc node -s east, \
-    grid,rgrid,even,tiled}
+    grid,rgrid,even,tiled && bsp-layout remove}
 
 #
 # Position window commands

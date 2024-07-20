@@ -180,3 +180,8 @@ nitrogen --save --set-zoom-fill /usr/share/backgrounds/wallpapers/Catppuccin/cat
 # Set color
 ~/.config/colorschemes/script RosePine
 ~/.config/colorschemes/gtk-gen
+
+# LightDM Display Manager
+#sudo pacman -S lightdm lightdm-gtk-greeter
+#sudo systemctl enable lightdm
+#sudo systemctl start lightdm

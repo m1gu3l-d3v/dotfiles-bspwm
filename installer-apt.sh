@@ -152,7 +152,7 @@ sed -i "s|/home/mike/.config/neofetch/hack3.txt|/home/$(whoami)/.config/neofetch
 sudo apt install xinit xserver-xorg-input-all xserver-xorg x11-utils -y
 
 # Basic and recomended packages for bspwm
-sudo apt install bspwm polybar sxhkd alacritty thunar rofi mpd ncmpcpp nitrogen dunst mpd ncmpcpp xclip xsettingsd psmisc picom coreutils unrar-free zip policykit-1-gnome zsh zsh-autosuggestions imagemagick neovim nodejs npm ripgrep -y
+sudo apt install bspwm polybar sxhkd alacritty thunar gvfs rofi mpd ncmpcpp nitrogen dunst mpd ncmpcpp xclip xsettingsd psmisc picom coreutils unrar-free zip policykit-1-gnome zsh zsh-autosuggestions imagemagick neovim nodejs npm ripgrep -y
 
 # Solution: Slow startup for applications
 sudo apt autopurge xdg-desktop-portal-gtk

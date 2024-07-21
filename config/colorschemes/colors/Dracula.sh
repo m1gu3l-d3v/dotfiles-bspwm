@@ -1,7 +1,7 @@
 colorbg='#282a36'
 colorfg='#ffffff'
 colormain1='#bd93f9'
-color0='#282936'
+color0='#302c45'
 color1='#ff5555'
 color2='#50fa7b'
 color3='#ffb86c'

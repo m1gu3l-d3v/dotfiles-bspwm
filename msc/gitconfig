@@ -1,0 +1,9 @@
+[core]
+	editor = nvim -u ~/.config/nvim/init.lua
+	autocrlf = input
+
+[color]
+	ui = true
+
+[push]
+	autoSetupRemote = true

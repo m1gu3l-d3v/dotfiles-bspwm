@@ -20,15 +20,18 @@ alias nv='nvim'
 alias hx='helix'
 alias :q='; exit'
 alias git-clone='_git_clone'
+alias git-merge-main='merge_main_to_branches'
 alias poweroff='/sbin/poweroff'
 alias reboot='/sbin/reboot'
-alias update='sudo apt update && sudo apt upgrade'
+alias update='sudo apt update && sudo apt full-upgrade -y && sudo apt autopurge'
 alias rm-nvim='rm -rf ~/.cache/nvim/ ~/.local/share/nvim/ ~/.local/state/nvim/ ~/.config/nvim/lazy-lock.json'
-alias history='fc -l -1000'
+alias history='fc -l -1000 | less +G'
 alias bc='bc -l'
 alias mkdir='mkdir -pv'
-alias sprm='nohup alacritty -e sh -c "mvn clean && mvn spring-boot:run" >/dev/null 2>&1 &'
-alias sprg='nohup alacritty -e sh -c "./gradlew bootRun" >/dev/null 2>&1 &'
+alias sprm='mvn clean && mvn spring-boot:run'
+alias sprg='./gradlew bootRun'
+alias sprmx='nohup alacritty -e sh -c "mvn clean && mvn spring-boot:run" >/dev/null 2>&1 &'
+alias sprgx='nohup alacritty -e sh -c "./gradlew bootRun" >/dev/null 2>&1 &'
 alias jtem='nvim ~/.templates/dependencies.xml ~/.templates/application.properties ~/.templates/javapages.jsp -c "vsp ~/.templates/application.properties" -c "sp ~/.templates/javapages.jsp"'
 alias mhttp='cat ~/.rest-nvim.rest | xclip -selection clipboard'
 alias toMp3='sh -c '\''ffmpeg -i "$1" -q:a 0 -map a "${1%.*}.mp3"'\'' -'
@@ -36,6 +39,8 @@ alias toMp4='sh -c '\''ffmpeg -i "$1" -codec:v copy -codec:a copy "${1%.*}.mp4"'
 
 ### BASH or ZSH
 if [ "$SHELL" = "/bin/zsh" ]; then
+  # Syntax Highlighting
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   # PROMPT
   setopt PROMPT_SUBST
   source ~/.zsh/git-prompt.zsh/git-prompt.zsh
@@ -129,4 +134,27 @@ _colorscheme_completions_bash() {
   esac
 
   COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+}
+
+function merge_main_to_branches() {
+  # Asegúrate de estar en la rama main
+  git checkout main || return
+  
+  git push origin main || return
+
+  # Obtén una lista de todas las ramas excepto 'main'
+  local branches
+  branches=$(git branch --format '%(refname:short)' | grep -v '^main$')
+
+  # Realiza el merge de main en cada rama
+  while IFS= read -r branch; do
+    echo "Mergeando main en $branch"
+    git checkout "$branch" || return
+    git merge main || return
+    # Si deseas hacer un push automático después del merge, descomenta la siguiente línea
+    git push origin "$branch"
+  done <<< "$branches"
+
+  # Regresa a la rama main
+  git checkout main || return
 }

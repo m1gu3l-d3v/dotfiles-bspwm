@@ -28,7 +28,11 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "ctrl+m",
+    "key": "alt+tab",
     "command": "editor.action.toggleTabFocusMode"
+  },
+  {
+    "key": "ctrl+m",
+    "command": "workbench.action.toggleMaximizedPanel"
   }
 ]

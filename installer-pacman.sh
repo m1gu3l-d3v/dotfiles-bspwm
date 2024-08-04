@@ -88,6 +88,10 @@ chmod +x ~/.config/rofi/scripts/*
 chmod +x ~/.config/polybar/scripts/*
 chmod +x ~/.config/sysfetch/sysfetch
 
+# Set color
+~/.config/colorschemes/script RosePine
+~/.config/colorschemes/gtk-gen
+
 # Path
 touch ~/.bashrc
 echo '' >> ~/.bashrc
@@ -140,6 +144,10 @@ mkdir -p ~/.config/bpytop/themes/ && ln -s ~/.cache/colorschemes/btop.theme ~/.c
 # screenkey theme (symbolic link)
 rm ~/.config/screenkey.json
 ln -s ~/.cache/colorschemes/screenkey.json ~/.config/screenkey.json
+
+# Vesktop Theme
+mkdir -p ~/.config/vesktop/themes/
+ln ~/.cache/colorschemes/discord.css ~/.config/vesktop/themes/discord.css
 
 source ~/.bashrc
 source ~/.zshrc

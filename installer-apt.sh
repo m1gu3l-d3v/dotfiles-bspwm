@@ -88,6 +88,10 @@ chmod +x ~/.config/rofi/scripts/*
 chmod +x ~/.config/polybar/scripts/*
 chmod +x ~/.config/sysfetch/sysfetch
 
+# Set color
+~/.config/colorschemes/script RosePine
+~/.config/colorschemes/gtk-gen
+
 # Path
 touch ~/.bashrc
 echo '' >> ~/.bashrc
@@ -141,6 +145,10 @@ mkdir -p ~/.config/bpytop/themes/ && ln -s ~/.cache/colorschemes/btop.theme ~/.c
 rm ~/.config/screenkey.json
 ln -s ~/.cache/colorschemes/screenkey.json ~/.config/screenkey.json
 
+# Vesktop Theme
+mkdir -p ~/.config/vesktop/themes/
+ln ~/.cache/colorschemes/discord.css ~/.config/vesktop/themes/discord.css
+
 source ~/.bashrc
 source ~/.zshrc
 
@@ -185,3 +193,5 @@ nitrogen --save --set-zoom-fill /usr/share/backgrounds/wallpapers/Catppuccin/cat
 #sudo apt install lightdm lightdm-gtk-greeter
 #sudo systemctl enable lightdm
 #sudo systemctl start lightdm
+
+xfconf-query --channel thunar --property /misc-exec-shell-scripts-by-default --create --type bool --set true
